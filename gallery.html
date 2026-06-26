@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse JOPA Foundation's photo gallery showcasing our work and community impact across Uganda.">
+  <meta name="keywords" content="Gallery, Photos, Community, JOPA Foundation">
+  <meta name="author" content="JOPA Foundation Uganda">
+  <meta property="og:title" content="Gallery - JOPA Foundation Uganda">
+  <meta property="og:description" content="View photos of JOPA Foundation's community projects and impact.">
+  <meta property="og:url" content="https://James-Wigmore.github.io/jopa-foundation/gallery.html">
+  <meta name="theme-color" content="#1B5E20">
+  <link rel="icon" type="image/png" href="./images/favicon.png">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Gallery - JOPA Foundation Uganda</title>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-text">JOPA</span>
+          <span class="logo-subtitle">Foundation</span>
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" data-page="home">Home</a></li>
+        <li><a href="about.html" class="nav-link" data-page="about">About Us</a></li>
+        <li><a href="programs.html" class="nav-link" data-page="programs">Programs</a></li>
+        <li><a href="projects.html" class="nav-link" data-page="projects">Projects</a></li>
+        <li><a href="leadership.html" class="nav-link" data-page="leadership">Leadership</a></li>
+        <li><a href="gallery.html" class="nav-link active" data-page="gallery">Gallery</a></li>
+        <li><a href="news.html" class="nav-link" data-page="news">News</a></li>
+        <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-background" style="background-image: url('./images/gallery-hero.jpg');"></div>
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <h1 class="page-title fade-in-up">Photo Gallery</h1>
+      <p class="page-subtitle fade-in-up">Our work and community impact in visual stories</p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Gallery Filter -->
+    <section class="section gallery-filter-section">
+      <div class="container">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All Photos</button>
+          <button class="filter-btn" data-filter="education">Education</button>
+          <button class="filter-btn" data-filter="health">Health</button>
+          <button class="filter-btn" data-filter="agriculture">Agriculture</button>
+          <button class="filter-btn" data-filter="community">Community</button>
+          <button class="filter-btn" data-filter="events">Events</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Masonry Gallery -->
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="masonry-gallery">
+          <!-- Gallery Item 1 -->
+          <div class="gallery-item scroll-reveal" data-category="education">
+            <img src="./images/gallery-1.jpg" alt="Youth receiving digital skills training">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Digital Skills Training</h3>
+                <p>Youth participants learning coding and web development</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 2 -->
+          <div class="gallery-item scroll-reveal" data-category="agriculture">
+            <img src="./images/gallery-2.jpg" alt="Farmers at demonstration plot">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Agricultural Training</h3>
+                <p>Farmers learn sustainable farming practices</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 3 -->
+          <div class="gallery-item scroll-reveal" data-category="health">
+            <img src="./images/gallery-3.jpg" alt="Health screening session">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Community Health Outreach</h3>
+                <p>Free health screening for community members</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 4 -->
+          <div class="gallery-item scroll-reveal" data-category="community">
+            <img src="./images/gallery-4.jpg" alt="Community gathering">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Community Meeting</h3>
+                <p>Community members discuss development priorities</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 5 -->
+          <div class="gallery-item scroll-reveal" data-category="events">
+            <img src="./images/gallery-5.jpg" alt="Launch event">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Program Launch</h3>
+                <p>Launching new education and training initiative</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 6 -->
+          <div class="gallery-item scroll-reveal" data-category="education">
+            <img src="./images/gallery-6.jpg" alt="School project">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>School Infrastructure</h3>
+                <p>Classroom renovation project completion</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 7 -->
+          <div class="gallery-item scroll-reveal" data-category="agriculture">
+            <img src="./images/gallery-7.jpg" alt="Harvest celebration">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Harvest Celebration</h3>
+                <p>Farmers celebrate improved harvest yields</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 8 -->
+          <div class="gallery-item scroll-reveal" data-category="community">
+            <img src="./images/gallery-8.jpg" alt="Environmental project">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Tree Planting Drive</h3>
+                <p>Community members participate in reforestation</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 9 -->
+          <div class="gallery-item scroll-reveal" data-category="events">
+            <img src="./images/gallery-9.jpg" alt="Youth leadership program">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Youth Leadership Summit</h3>
+                <p>Young leaders gather for capacity building</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 10 -->
+          <div class="gallery-item scroll-reveal" data-category="health">
+            <img src="./images/gallery-10.jpg" alt="Health worker training">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Health Worker Training</h3>
+                <p>Community health workers receive certification</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 11 -->
+          <div class="gallery-item scroll-reveal" data-category="education">
+            <img src="./images/gallery-11.jpg" alt="Vocational training">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Vocational Skills Training</h3>
+                <p>Youth learning various trade skills</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+
+          <!-- Gallery Item 12 -->
+          <div class="gallery-item scroll-reveal" data-category="community">
+            <img src="./images/gallery-12.jpg" alt="Award ceremony">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Recognition Ceremony</h3>
+                <p>Outstanding participants recognized for achievements</p>
+              </div>
+              <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-content scroll-reveal">
+          <h2>See Our Impact in Action</h2>
+          <p>Follow us on social media for regular updates and stories from the field.</p>
+        </div>
+        <div class="cta-buttons scroll-reveal">
+          <a href="#" class="btn btn-primary">Follow on Instagram</a>
+          <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <img id="lightbox-image" src="" alt="">
+      <button class="lightbox-next" aria-label="Next image">&#10095;</button>
+      <div class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>JOPA Foundation Uganda</h3>
+          <p>Building hope and empowering communities through education, innovation, and sustainable development initiatives across Uganda.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook" title="Facebook">f</a>
+            <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
+            <a href="#" aria-label="Instagram" title="Instagram">📷</a>
+            <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Contact Information</h4>
+          <p><strong>Email:</strong> <a href="mailto:info@jopafoundation.org">info@jopafoundation.org</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+256700000000">+256 700 000 000</a></p>
+          <p><strong>Address:</strong> Kampala, Uganda</p>
+          <div class="newsletter-signup">
+            <input type="email" placeholder="Your email" id="newsletterEmail">
+            <button type="submit">Subscribe</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 JOPA Foundation Uganda. All Rights Reserved.</p>
+        <p class="registration-notice">JOPA Foundation Uganda is currently undergoing registration.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top">↑</button>
+
+  <!-- Scripts -->
+  <script src="./js/script.js"></script>
+</body>
+</html>
