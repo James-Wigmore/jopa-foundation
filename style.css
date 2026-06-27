@@ -141,3 +141,41 @@ footer {
     margin-top: 10px;
   }
 }
+
+  /* JOPA Meaning */
+.jopa-meaning {
+    max-width: 900px;
+    margin: 35px auto 0;
+    padding: 25px 30px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 16px;
+    color: #fff;
+    animation-delay: 0.4s;
+}
+
+.jopa-meaning h2 {
+    color: #F4B400;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.jopa-acronym {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.jopa-acronym strong {
+    color: #F4B400;
+    font-size: 1.35rem;
+}
+
+.jopa-description {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #f5f5f5;
+}

@@ -605,7 +605,7 @@ li {
 .project-card {
   background: var(--color-white);
   border-radius: var(--radius-lg);
-  overflow: hidden;
+  overflow: visible;
   box-shadow: var(--shadow-md);
   transition: var(--transition);
   height: 100%;
@@ -621,7 +621,7 @@ li {
 .project-image {
   position: relative;
   height: 250px;
-  overflow: hidden;
+  overflow: visible;
   background: var(--color-light-bg);
 }
 
@@ -1170,7 +1170,7 @@ li {
 
 .gallery-item {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-radius: var(--radius-lg);
   height: 300px;
   cursor: pointer;
