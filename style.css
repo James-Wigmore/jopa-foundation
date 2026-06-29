@@ -140,4 +140,23 @@ footer {
   .navbar nav {
     margin-top: 10px;
   }
+.hero-title{
+
+    font-size:2.4rem;
+
+}
+
+.hero-subtitle{
+
+    font-size:1rem;
+
+}
+
+.hero-highlights{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
 }
