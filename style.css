@@ -142,43 +142,39 @@ footer {
   }
 }
 
- .jopa-meaning {
+ /* JOPA Meaning */
+.jopa-meaning {
     max-width: 900px;
     margin: 35px auto 0;
     padding: 25px 30px;
-    background: rgba(0, 0, 0, 0.45);
+    background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
     border-radius: 16px;
-    color: #fff;
+    color: #000;
+    font-weight: 600;
+    animation-delay: 0.4s;
+}
+
+/* Ensure all text inside is black */
+.jopa-meaning h2,
+.jopa-meaning p,
+.jopa-meaning strong,
+.jopa-meaning .jopa-acronym,
+.jopa-meaning .jopa-description {
+    color: #000;
 }
 
 .jopa-meaning h2 {
-    color: #F4B400;
-    margin-bottom: 15px;
-    font-size: 1.8rem;
     font-weight: 700;
 }
 
-.jopa-meaning {
-    color: #fff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+.jopa-description {
+    font-weight: 600;
+    line-height: 1.8;
 }
 
 .jopa-acronym {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
-.jopa-acronym strong {
-    color: #F4B400;
-    font-size: 1.35rem;
-}
-
-.jopa-description {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: #f5f5f5;
+    font-weight: 700;
+    font-size: 1.1rem;
 }
