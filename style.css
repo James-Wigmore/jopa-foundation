@@ -143,17 +143,12 @@ footer {
 }
 
  /* JOPA Meaning */
-.jopa-meaning {
-    max-width: 900px;
-    margin: 35px auto 0;
-    padding: 25px 30px;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 16px;
-    color: #000;
-    font-weight: 600;
-    animation-delay: 0.4s;
+.jopa-meaning,
+.jopa-meaning h2,
+.jopa-meaning p,
+.jopa-meaning strong {
+    color: #000000 !important;
+    opacity: 1 !important;
 }
 
 /* Ensure all text inside is black */
