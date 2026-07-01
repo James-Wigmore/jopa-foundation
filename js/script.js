@@ -6,6 +6,7 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
   initializeNavigation();
+  initializeSearch();
   initializeScrollReveal();
   initializeAnimatedCounters();
   initializeBackToTop();
@@ -88,6 +89,86 @@ function updateActiveNavLink() {
       link.classList.add('active');
     }
   });
+}
+
+/* ============================================================================
+   SEARCH FUNCTIONALITY
+   ========================================================================== */
+
+function initializeSearch() {
+  const searchToggle = document.getElementById('searchToggle');
+  const searchBar = document.getElementById('searchBar');
+  const searchInput = document.getElementById('searchInput');
+
+  if (searchToggle) {
+    searchToggle.addEventListener('click', function() {
+      searchBar.classList.toggle('active');
+      if (searchBar.classList.contains('active')) {
+        searchInput.focus();
+      }
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function(e) {
+      const query = e.target.value.trim().toLowerCase();
+      if (query.length > 2) {
+        performSearch(query);
+      } else {
+        document.getElementById('searchResults').innerHTML = '';
+      }
+    });
+  }
+
+  // Close search bar when pressing Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && searchBar) {
+      searchBar.classList.remove('active');
+    }
+  });
+}
+
+function performSearch(query) {
+  // Searchable content structure
+  const searchableContent = [
+    { title: 'Home', url: 'index.html', keywords: ['home', 'jopa', 'foundation'] },
+    { title: 'About Us', url: 'about.html', keywords: ['about', 'mission', 'vision', 'values'] },
+    { title: 'Programs', url: 'programs.html', keywords: ['programs', 'education', 'health', 'agriculture', 'youth', 'women', 'entrepreneurship', 'environment', 'research', 'digital', 'innovation'] },
+    { title: 'Projects', url: 'projects.html', keywords: ['projects', 'tech', 'agriculture', 'leadership'] },
+    { title: 'Leadership', url: 'leadership.html', keywords: ['leadership', 'team', 'staff'] },
+    { title: 'Gallery', url: 'gallery.html', keywords: ['gallery', 'images', 'photos'] },
+    { title: 'News', url: 'news.html', keywords: ['news', 'updates', 'articles'] },
+    { title: 'Contact', url: 'contact.html', keywords: ['contact', 'email', 'phone', 'address'] }
+  ];
+
+  const results = searchableContent.filter(item => 
+    item.title.toLowerCase().includes(query) ||
+    item.keywords.some(keyword => keyword.includes(query))
+  );
+
+  displaySearchResults(results, query);
+}
+
+function displaySearchResults(results, query) {
+  const searchResults = document.getElementById('searchResults');
+  
+  if (results.length === 0) {
+    searchResults.innerHTML = '<div class="search-result-item" style="padding: 1rem; text-align: center; color: #999;">No results found for "' + query + '"</div>';
+    return;
+  }
+
+  let html = '';
+  results.forEach(result => {
+    html += `
+      <div class="search-result-item">
+        <a href="${result.url}">
+          <strong>${result.title}</strong>
+        </a>
+      </div>
+    `;
+  });
+
+  searchResults.innerHTML = html;
 }
 
 /* ============================================================================
@@ -378,27 +459,31 @@ function initializeFAQ() {
     const answer = item.querySelector('.faq-answer');
     const toggle = item.querySelector('.faq-toggle');
 
-    question.addEventListener('click', function() {
-      // Close other items
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.classList.remove('active');
-          otherItem.querySelector('.faq-answer').style.maxHeight = '0';
-          otherItem.querySelector('.faq-toggle').textContent = '+';
+    if (question) {
+      question.addEventListener('click', function() {
+        // Close other items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherAnswer = otherItem.querySelector('.faq-answer');
+            const otherToggle = otherItem.querySelector('.faq-toggle');
+            if (otherAnswer) otherAnswer.style.maxHeight = '0';
+            if (otherToggle) otherToggle.textContent = '+';
+          }
+        });
+
+        // Toggle current item
+        item.classList.toggle('active');
+
+        if (item.classList.contains('active')) {
+          if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+          if (toggle) toggle.textContent = '−';
+        } else {
+          if (answer) answer.style.maxHeight = '0';
+          if (toggle) toggle.textContent = '+';
         }
       });
-
-      // Toggle current item
-      item.classList.toggle('active');
-
-      if (item.classList.contains('active')) {
-        answer.style.maxHeight = answer.scrollHeight + 'px';
-        toggle.textContent = '−';
-      } else {
-        answer.style.maxHeight = '0';
-        toggle.textContent = '+';
-      }
-    });
+    }
   });
 }
 
@@ -427,8 +512,10 @@ function initializeLightbox() {
 
   function openLightbox(image) {
     const lightboxImage = document.getElementById('lightbox-image');
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
+    if (lightboxImage) {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+    }
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
@@ -446,17 +533,24 @@ function initializeLightbox() {
   }
 
   // Close button
-  document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  const closeBtn = document.querySelector('.lightbox-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
 
   // Previous button
-  document.querySelector('.lightbox-prev').addEventListener('click', () => {
-    showImage((currentIndex - 1 + galleryImages.length) % galleryImages.length);
-  });
+  const prevBtn = document.querySelector('.lightbox-prev');
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      showImage((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+    });
+  }
 
   // Next button
-  document.querySelector('.lightbox-next').addEventListener('click', () => {
-    showImage((currentIndex + 1) % galleryImages.length);
-  });
+  const nextBtn = document.querySelector('.lightbox-next');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      showImage((currentIndex + 1) % galleryImages.length);
+    });
+  }
 
   // Close on background click
   lightbox.addEventListener('click', function(e) {
