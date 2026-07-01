@@ -336,6 +336,17 @@ li {
   display: block;
 }
 
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Hamburger Menu */
 .hamburger {
   display: none;
@@ -1028,6 +1039,18 @@ li {
   font-style: italic;
   color: var(--color-accent);
   font-weight: 500;
+}
+
+.footer-logo {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.footer-logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  display: inline-block;
 }
 
 /* ============================================================================
