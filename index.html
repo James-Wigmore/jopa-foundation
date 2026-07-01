@@ -12,15 +12,16 @@
   <meta property="og:url" content="https://James-Wigmore.github.io/jopa-foundation/">
   <meta name="theme-color" content="#1B5E20">
   <link rel="icon" type="image/png" href="./images/favicon.png">
+  <link rel="canonical" href="https://James-Wigmore.github.io/jopa-foundation/">
   <link rel="stylesheet" href="./css/style.css">
   <title>JOPA Foundation Uganda - Building Hope, Empowering Communities</title>
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar">
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
     <div class="container nav-container">
       <div class="logo">
-        <a href="index.html">
+        <a href="index.html" aria-label="JOPA Foundation Uganda - Home">
           <span class="logo-text">JOPA</span>
           <span class="logo-subtitle">Foundation</span>
         </a>
@@ -35,10 +36,24 @@
         <li><a href="news.html" class="nav-link" data-page="news">News</a></li>
         <li><a href="contact.html" class="nav-link" data-page="contact">Contact</a></li>
       </ul>
-      <div class="hamburger">
+      <!-- Search Icon -->
+      <button class="search-toggle" id="searchToggle" aria-label="Toggle search">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+      </button>
+      <div class="hamburger" aria-label="Toggle mobile menu">
         <span></span>
         <span></span>
         <span></span>
+      </div>
+    </div>
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar" role="search">
+      <div class="container">
+        <input type="search" id="searchInput" placeholder="Search programs, news, content..." aria-label="Search website">
+        <div id="searchResults" class="search-results"></div>
       </div>
     </div>
   </nav>
@@ -71,19 +86,20 @@
       </div>
       <div class="about-preview-content">
         <div class="about-preview-text scroll-reveal">
-          <p>JOPA Foundation Uganda is a community-based organization committed to creating sustainable opportunities and improving livelihoods through innovation, education, and empowerment. We work across multiple sectors to drive positive social and economic change in Uganda.</p>
+          <p>JOPA Foundation Uganda is a community-based organization committed to creating sustainable opportunities and improving livelihoods through innovation, education, and empowerment.</p>
+          <p>We work to advance sustainable development across nine key strategic focus areas, guided by principles of integrity, community empowerment, and innovation.</p>
           <a href="about.html" class="btn btn-outline">Read Our Full Story</a>
         </div>
         <div class="about-preview-image scroll-reveal">
           <div class="image-placeholder">
-            <img src="./images/about-preview.jpg" alt="JOPA Foundation Uganda Team">
+            <img src="./images/about-preview.jpg" alt="JOPA Foundation Uganda Team working in community">
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Impact Section -->
+  <!-- Impact Statistics Section -->
   <section class="section impact-section">
     <div class="container">
       <div class="section-header">
@@ -91,19 +107,19 @@
         <div class="title-underline"></div>
       </div>
       <div class="impact-grid">
-        <div class="impact-card scroll-reveal" data-target="001">
+        <div class="impact-card scroll-reveal" data-target="20">
           <div class="impact-number">0</div>
-          <p class="impact-label">Communities Reached</p>
+          <p class="impact-label">Districts Reached</p>
         </div>
-        <div class="impact-card scroll-reveal" data-target="000">
+        <div class="impact-card scroll-reveal" data-target="45">
           <div class="impact-number">0</div>
           <p class="impact-label">Projects Completed</p>
         </div>
-        <div class="impact-card scroll-reveal" data-target="0002">
+        <div class="impact-card scroll-reveal" data-target="5000">
           <div class="impact-number">0</div>
           <p class="impact-label">Youth Empowered</p>
         </div>
-        <div class="impact-card scroll-reveal" data-target="001">
+        <div class="impact-card scroll-reveal" data-target="50">
           <div class="impact-number">0</div>
           <p class="impact-label">Active Volunteers</p>
         </div>
@@ -111,12 +127,12 @@
     </div>
   </section>
 
-  <!-- Programs Section -->
+  <!-- Strategic Focus Areas Section (9 Programs) -->
   <section class="section programs-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title scroll-reveal">Our Strategic Areas</h2>
-        <p class="section-subtitle scroll-reveal">We focus on eight key areas to create lasting positive change</p>
+        <h2 class="section-title scroll-reveal">Our Strategic Focus Areas</h2>
+        <p class="section-subtitle scroll-reveal">We focus on nine key areas to create lasting positive change</p>
         <div class="title-underline"></div>
       </div>
       <div class="programs-grid">
@@ -166,6 +182,9 @@
           <p>Building digital competencies to enable participation in the knowledge economy.</p>
         </div>
       </div>
+      <div class="text-center" style="margin-top: 3rem;">
+        <a href="programs.html" class="btn btn-primary">Explore All Programs</a>
+      </div>
     </div>
   </section>
 
@@ -179,7 +198,7 @@
       <div class="projects-grid">
         <div class="project-card scroll-reveal">
           <div class="project-image">
-            <img src="./images/project-1.jpg" alt="Tech for Good Initiative">
+            <img src="./images/project-1.jpg" alt="Tech for Good Initiative - training youth in digital skills">
             <div class="project-overlay"></div>
           </div>
           <div class="project-content">
@@ -190,7 +209,7 @@
         </div>
         <div class="project-card scroll-reveal">
           <div class="project-image">
-            <img src="./images/project-2.jpg" alt="Sustainable Agriculture Program">
+            <img src="./images/project-2.jpg" alt="Sustainable Agriculture Program - farmers learning sustainable practices">
             <div class="project-overlay"></div>
           </div>
           <div class="project-content">
@@ -201,7 +220,7 @@
         </div>
         <div class="project-card scroll-reveal">
           <div class="project-image">
-            <img src="./images/project-3.jpg" alt="Youth Leadership Academy">
+            <img src="./images/project-3.jpg" alt="Youth Leadership Academy - developing transformative leaders">
             <div class="project-overlay"></div>
           </div>
           <div class="project-content">
@@ -236,13 +255,13 @@
   <section class="section news-section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title scroll-reveal">Latest News</h2>
+        <h2 class="section-title scroll-reveal">Latest News & Updates</h2>
         <div class="title-underline"></div>
       </div>
       <div class="news-grid">
         <article class="news-card scroll-reveal">
           <div class="news-image">
-            <img src="./images/news-1.jpg" alt="News article image">
+            <img src="./images/news-1.jpg" alt="JOPA Foundation launches digital skills program">
           </div>
           <div class="news-content">
             <div class="news-date">June 20, 2026</div>
@@ -253,7 +272,7 @@
         </article>
         <article class="news-card scroll-reveal">
           <div class="news-image">
-            <img src="./images/news-2.jpg" alt="News article image">
+            <img src="./images/news-2.jpg" alt="Community health outreach reaches 2000 members">
           </div>
           <div class="news-content">
             <div class="news-date">June 15, 2026</div>
@@ -264,7 +283,7 @@
         </article>
         <article class="news-card scroll-reveal">
           <div class="news-image">
-            <img src="./images/news-3.jpg" alt="News article image">
+            <img src="./images/news-3.jpg" alt="New partnership strengthens agricultural programs">
           </div>
           <div class="news-content">
             <div class="news-date">June 10, 2026</div>
@@ -281,17 +300,17 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
         <div class="footer-column">
           <h3>JOPA Foundation Uganda</h3>
           <p>Building hope and empowering communities through education, innovation, and sustainable development initiatives across Uganda.</p>
-          <div class="social-links">
-            <a href="#" aria-label="Facebook" title="Facebook">f</a>
-            <a href="#" aria-label="Twitter" title="Twitter">𝕏</a>
-            <a href="#" aria-label="Instagram" title="Instagram">📷</a>
-            <a href="#" aria-label="LinkedIn" title="LinkedIn">in</a>
+          <div class="social-links" aria-label="Follow us on social media">
+            <a href="https://facebook.com/jopafoundation" aria-label="Follow on Facebook" title="Facebook" target="_blank" rel="noopener noreferrer">f</a>
+            <a href="https://twitter.com/jopafoundation" aria-label="Follow on Twitter" title="Twitter" target="_blank" rel="noopener noreferrer">𝕏</a>
+            <a href="https://instagram.com/jopafoundation" aria-label="Follow on Instagram" title="Instagram" target="_blank" rel="noopener noreferrer">📷</a>
+            <a href="https://linkedin.com/company/jopafoundation" aria-label="Follow on LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer">in</a>
           </div>
         </div>
         <div class="footer-column">
@@ -307,12 +326,12 @@
         </div>
         <div class="footer-column">
           <h4>Contact Information</h4>
-          <p><strong>Email:</strong> <a href="mailto:adminjopafoundation.org">admin@jopafoundation.org</a></p>
-          <p><strong>Phone:</strong> <a href="tel:+256773382591">+256 773382591</a></p>
-          <p><strong>Address:</strong> Amuria  District, Uganda</p>
+          <p><strong>Email:</strong> <a href="mailto:admin@jopafoundation.org">admin@jopafoundation.org</a></p>
+          <p><strong>Phone:</strong> <a href="tel:+256773382591">+256 773 382 591</a></p>
+          <p><strong>Address:</strong> Willa Sub-county, Amuria, Uganda</p>
           <div class="newsletter-signup">
-            <input type="email" placeholder="Your email" id="newsletterEmail">
-            <button type="submit">Subscribe</button>
+            <input type="email" placeholder="Your email" id="newsletterEmail" aria-label="Subscribe to newsletter">
+            <button type="submit" aria-label="Subscribe">Subscribe</button>
           </div>
         </div>
       </div>
