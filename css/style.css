@@ -275,6 +275,11 @@ li {
 .hamburger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -7px);
 }
+.logo-img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
 
 /* ============================================================================
    HERO SECTION
