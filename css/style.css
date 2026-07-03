@@ -325,6 +325,29 @@ li {
   </div>
 </section>
 
+/* ===========================
+   SECTION HEADINGS (UPDATED)
+=========================== */
+
+.section-header {
+  text-align: center; /* centers "Our Impact", "Who We Are", etc. */
+  margin-bottom: 45px;
+}
+
+.section-title {
+  font-size: 1.9rem; /* reduced slightly from 2rem */
+  font-weight: 700;
+  color: #0f172a;
+  letter-spacing: 0.5px;
+}
+
+.title-underline {
+  width: 60px;
+  height: 3px;
+  background: #166534;
+  margin: 10px auto 0; /* ensures underline stays centered */
+  border-radius: 2px;
+}
 
 <!-- ===========================
      ABOUT PREVIEW SECTION
