@@ -164,21 +164,12 @@ li {
    NAVIGATION BAR
    ========================================================================== */
 
-.navbar {
+   .navbar {
+  background: #0f172a;
+  padding: 15px 30px;
   position: sticky;
   top: 0;
-  z-index: var(--z-navbar);
-  background: rgba(31, 41, 55, 0.95);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  transition: var(--transition);
-  padding: 1rem 0;
-}
-
-.navbar.scrolled {
-  background: rgba(31, 41, 55, 0.98);
-  box-shadow: var(--shadow-md);
+  z-index: 1000;
 }
 
 .nav-container {
@@ -187,37 +178,23 @@ li {
   align-items: center;
 }
 
-.logo a {
-  display: flex;
-  flex-direction: column;
-  color: var(--color-white);
-  font-weight: 700;
-  text-decoration: none;
-  transition: var(--transition);
-}
-
-.logo-text {
-  font-size: 1.25rem;
-  letter-spacing: 2px;
-}
-
-.logo-subtitle {
-  font-size: 0.75rem;
-  letter-spacing: 1px;
-  opacity: 0.8;
-}
-
-.logo a:hover {
-  color: var(--color-accent);
+.logo img {
+  height: 55px;
+  width: auto;
+  display: block;
 }
 
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: var(--spacing-lg);
-  align-items: center;
+  gap: 20px;
 }
 
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
 .nav-link {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
@@ -332,7 +309,12 @@ li {
 
 }
 
-
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0ea5e9, #1e3a8a);
+  color: white;
+}
 
 .hero-title {
   font-size: 4rem;
