@@ -296,211 +296,114 @@ li {
 
 }
 
-/* ============================================================================
-   HERO SECTION
-   ========================================================================== */
+<!-- ===========================
+         HERO SECTION
+============================ -->
+<section class="hero">
 
-.hero {
-  position: relative;
-  height: 100vh;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-top: 0;
-}
+  <div class="hero-overlay"></div>
 
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 0;
-}
+  <div class="container hero-content">
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(27, 94, 32, 0.85), rgba(31, 41, 55, 0.85));
-  z-index: 1;
-}
+    <h1 class="hero-title">
+      JOPA Foundation Uganda
+    </h1>
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: var(--color-white);
-  max-width: 800px;
-  padding: var(--spacing-2xl);
-}
+    <h2 class="hero-subtitle">
+      A Community-Based Organization Committed to Education, Leadership Development, Innovation, and Faith-Based Values
+    </h2>
 
-.hero-title {
-  font-size: 4rem;
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: var(--spacing-lg);
-  letter-spacing: -1px;
-  animation: fadeInUp 1s ease-out;
-}
+    <p class="hero-description">
+      JOPA Foundation Uganda exists to promote sustainable community development through structured programs in education, leadership training, innovation, and social transformation in accordance with its constitutional objectives.
+    </p>
 
-.hero-subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: var(--spacing-2xl);
-  line-height: 1.4;
-  animation: fadeInUp 1s ease-out 0.2s both;
-}
+    <div class="hero-buttons">
+      <a href="programs.html" class="btn btn-primary">Our Programs</a>
+      <a href="contact.html" class="btn btn-outline">Get Involved</a>
+    </div>
 
-.hero-buttons {
-  display: flex;
-  gap: var(--spacing-md);
-  justify-content: center;
-  flex-wrap: wrap;
-  animation: fadeInUp 1s ease-out 0.4s both;
-}
+  </div>
+</section>
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  animation: bounce 2s infinite;
-}
 
-.scroll-indicator span {
-  display: block;
-  width: 30px;
-  height: 50px;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  border-radius: 15px;
-  position: relative;
-}
+<!-- ===========================
+     ABOUT PREVIEW SECTION
+============================ -->
+<section class="section about-preview-section">
 
-.scroll-indicator span::after {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 2px;
-  animation: scroll-down 2s infinite;
-}
+  <div class="container">
 
-.hero{
+    <div class="section-header">
+      <h2 class="section-title">Who We Are</h2>
+      <div class="title-underline"></div>
+    </div>
 
-    margin-top:100px;
+    <div class="about-preview-content">
 
-    min-height:calc(100vh - 100px);
+      <div class="about-preview-text">
 
-    display:flex;
+        <p>
+          JOPA Foundation Uganda is a registered community-based organization established to implement structured development programs aimed at improving livelihoods through education, leadership development, innovation, and empowerment initiatives.
+        </p>
 
-    align-items:center;
+        <p>
+          The organization operates in accordance with its constitutional mandate, focusing on sustainable development across defined strategic areas guided by principles of accountability, integrity, and community participation.
+        </p>
 
-}
+        <a href="about.html" class="btn btn-outline">Read Our Full Story</a>
 
-/* ============================================================================
-   PAGE HERO
-   ========================================================================== */
+      </div>
 
-.page-hero {
-  position: relative;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-top: 60px;
-}
+      <div class="about-preview-image">
+        <img src="./images/about-preview.jpg" alt="JOPA Foundation Uganda community work">
+      </div>
 
-.page-hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
-}
+    </div>
 
-.page-hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(27, 94, 32, 0.8), rgba(31, 41, 55, 0.8));
-  z-index: 1;
-}
+  </div>
 
-.page-hero-content {
-  position: relative;
-  z-index: 2;
-  text-align: center;
-  color: var(--color-white);
-}
+</section>
 
-.page-title {
-  font-size: 3rem;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-white);
-}
 
-.page-subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.9);
-}
+<!-- ===========================
+     IMPACT SECTION
+============================ -->
+<section class="section impact-section">
 
-/* ============================================================================
-   SECTIONS
-   ========================================================================== */
+  <div class="container">
 
-.section {
-  padding: var(--spacing-3xl) 0;
-  background-color: var(--color-light-bg);
-}
+    <div class="section-header">
+      <h2 class="section-title">Our Impact</h2>
+      <div class="title-underline"></div>
+    </div>
 
-.section:nth-child(even) {
-  background-color: var(--color-white);
-}
+    <div class="impact-grid">
 
-.section-header {
-  text-align: center;
-  margin-bottom: var(--spacing-3xl);
-}
+      <div class="impact-card" data-target="20">
+        <div class="impact-number">0</div>
+        <p class="impact-label">Administrative Districts Reached</p>
+      </div>
 
-.section-title {
-  font-size: 2.5rem;
-  color: var(--color-text-dark);
-  margin-bottom: var(--spacing-md);
-}
+      <div class="impact-card" data-target="45">
+        <div class="impact-number">0</div>
+        <p class="impact-label">Development Projects Implemented</p>
+      </div>
 
-.section-subtitle {
-  font-size: 1.1rem;
-  color: var(--color-text);
-  max-width: 600px;
-  margin: 0 auto var(--spacing-lg);
-}
+      <div class="impact-card" data-target="5000">
+        <div class="impact-number">0</div>
+        <p class="impact-label">Youth Beneficiaries Supported</p>
+      </div>
 
-.title-underline {
-  width: 60px;
-  height: 4px;
-  background: var(--color-accent);
-  margin: var(--spacing-md) auto 0;
-  border-radius: var(--radius-full);
-}
+      <div class="impact-card" data-target="50">
+        <div class="impact-number">0</div>
+        <p class="impact-label">Registered Volunteers</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 /* ============================================================================
    BUTTONS
