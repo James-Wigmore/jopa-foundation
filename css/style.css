@@ -179,9 +179,12 @@ li {
 }
 
 .logo img {
-  height: 55px;
+  height: 60px;
   width: auto;
   display: block;
+  border: 2px solid red;
+  background: white;
+  padding: 2px;
 }
 
 .nav-menu {
