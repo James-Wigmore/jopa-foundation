@@ -699,3 +699,13 @@ console.log(
   '%cModern, Professional, Premium NGO Website',
   'font-size: 12px; color: #6B7280;'
 );
+
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+    contactForm.addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Thank you! Your message has been received.");
+        this.reset();
+    });
+}
