@@ -309,10 +309,23 @@ nav{
   background: rgba(0, 0, 0, 0.35);
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 900px;
+.page-hero-content{
+
+    max-width:950px;
+    margin:auto;
+
+    text-align:center;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    min-height:70vh;
+
+    position:relative;
+    z-index:2;
+
 }
 
 /* ===========================
@@ -401,25 +414,43 @@ nav{
    SECTION HEADINGS (FIXED)
 =========================== */
 
-.section-header {
-  text-align: center !important;
-  margin-bottom: 45px;
+.section-header{
+
+    text-align:center;
+    max-width:800px;
+    margin:0 auto 60px;
+
 }
 
-.section-title {
-  font-size: 1.85rem; /* reduced by ~2px */
-  font-weight: 700;
-  color: #0f172a;
-  letter-spacing: 0.5px;
-  text-align: center !important;
+.section-title{
+
+    font-size:2.6rem;
+    color:#1B5E20;
+    margin-bottom:15px;
+
 }
 
-.title-underline {
-  width: 60px;
-  height: 3px;
-  background: #166534;
-  margin: 10px auto 0;
-  border-radius: 2px;
+.title-underline{
+
+    width:90px;
+    height:4px;
+
+    background:#43A047;
+
+    margin:0 auto 25px;
+
+    border-radius:50px;
+
+}
+
+.section-subtitle{
+
+    color:#666;
+
+    font-size:1.05rem;
+
+    line-height:1.8;
+
 }
 
 /* ===========================
