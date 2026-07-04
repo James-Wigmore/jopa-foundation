@@ -850,7 +850,7 @@ li {
 .footer {
   background: var(--color-dark);
   color: var(--color-white);
-  padding: 70px 0 25px;
+  padding: 45px 0 25px;
 }
 
 .footer-content {
@@ -868,7 +868,12 @@ li {
 
 .footer-logo {
   display: inline-block;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
+}
+
+.footer-column h3,
+.footer-column h4 {
+  margin-top: 0;
 }
 
 .footer-logo-img {
