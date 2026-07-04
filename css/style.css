@@ -850,7 +850,7 @@ li {
 .footer {
   background: var(--color-dark);
   color: var(--color-white);
-  padding: 45px 0 25px;
+  padding: 30px 0 25px;
 }
 
 .footer-content {
@@ -885,7 +885,7 @@ li {
 .footer-column h3,
 .footer-column h4 {
   color: var(--color-white);
-  margin-bottom: 18px;
+  margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
