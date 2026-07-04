@@ -183,19 +183,23 @@ li {
 }
 
 .nav-container{
-
     max-width:1200px;
-
     margin:auto;
-
     padding:15px 20px;
-
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
+}
 
+nav{
+    margin-left:auto;
+}
+
+.nav-menu{
+    display:flex;
+    gap:35px;
+    list-style:none;
+    margin:0;
+    padding:0;
 }
 
 .logo{
@@ -228,19 +232,6 @@ li {
 
 }
 
-.nav-menu{
-
-    display:flex;
-
-    list-style:none;
-
-    gap:35px;
-
-    margin:0;
-
-    padding:0;
-
-}
 
 .nav-link{
 
