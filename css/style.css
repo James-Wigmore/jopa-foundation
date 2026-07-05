@@ -309,24 +309,6 @@ nav{
   background: rgba(0, 0, 0, 0.35);
 }
 
-.page-hero-content{
-
-    max-width:950px;
-    margin:auto;
-
-    text-align:center;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    min-height:70vh;
-
-    position:relative;
-    z-index:2;
-
-}
 
 /* ===========================
    HERO TEXT (REDUCED SIZE)
