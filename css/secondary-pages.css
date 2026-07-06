@@ -1,0 +1,960 @@
+/* ============================================================================
+   SECONDARY PAGES CSS - PART 1
+   LEADERSHIP PAGE
+   ========================================================================== */
+
+/* =========================
+   LEADERSHIP BASE LAYOUT
+========================= */
+
+.leadership-section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--color-light-bg);
+}
+
+.leadership-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.leadership-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.leadership-header h1 {
+  font-size: 2.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.leadership-header p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* =========================
+   DIRECTOR FEATURE SECTION
+========================= */
+
+.director-profile {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+  background: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.director-image {
+  flex: 0 0 280px;
+}
+
+.director-image img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.director-info h2 {
+  font-size: 1.8rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.director-info h4 {
+  font-size: 1rem;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-md);
+}
+
+.director-info p {
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* =========================
+   TEAM GRID
+========================= */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.team-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  text-align: center;
+}
+
+.team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.team-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.team-card-content {
+  padding: var(--spacing-md);
+}
+
+.team-card-content h3 {
+  color: var(--color-text-dark);
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+}
+
+.team-card-content span {
+  display: block;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+}
+
+.team-card-content p {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+/* =========================
+   BOARD SECTION
+========================= */
+
+.board-section {
+  margin-top: var(--spacing-3xl);
+}
+
+.board-title {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.board-title h2 {
+  font-size: 2rem;
+  color: var(--color-text-dark);
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.board-card {
+  background: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.board-card h4 {
+  font-size: 1rem;
+  color: var(--color-text-dark);
+}
+
+.board-card span {
+  font-size: 0.85rem;
+  color: var(--color-primary);
+}
+
+
+/* ============================================================================
+   SECONDARY PAGES CSS - PART 2
+   GALLERY PAGE
+   ========================================================================== */
+
+/* =========================
+   GALLERY BASE LAYOUT
+========================= */
+
+.gallery-section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--color-light-bg);
+}
+
+.gallery-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   GALLERY HEADER
+========================= */
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.gallery-header h1 {
+  font-size: 2.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.gallery-header p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* =========================
+   GALLERY GRID
+========================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* =========================
+   GALLERY ITEM
+========================= */
+
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  background: var(--color-white);
+  transition: var(--transition);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+/* Hover zoom effect */
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-item:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* =========================
+   OPTIONAL OVERLAY (FOR FUTURE LIGHTBOX)
+========================= */
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  color: var(--color-white);
+  font-size: 0.9rem;
+  background: rgba(0,0,0,0.5);
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+}
+
+/* =========================
+   FILTER BAR (OPTIONAL)
+========================= */
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-xl);
+  flex-wrap: wrap;
+}
+
+.gallery-filters button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-full);
+  background: var(--color-white);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ============================================================================
+   SECONDARY PAGES CSS - PART 3
+   NEWS PAGE
+   ========================================================================== */
+
+/* =========================
+   NEWS BASE LAYOUT
+========================= */
+
+.news-section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--color-light-bg);
+}
+
+.news-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   NEWS HEADER
+========================= */
+
+.news-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.news-header h1 {
+  font-size: 2.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.news-header p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* =========================
+   FEATURED ARTICLE
+========================= */
+
+.news-featured {
+  display: flex;
+  gap: var(--spacing-xl);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.news-featured img {
+  width: 45%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.news-featured-content {
+  padding: var(--spacing-xl);
+  flex: 1;
+}
+
+.news-featured-content .tag {
+  display: inline-block;
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.news-featured-content h2 {
+  font-size: 1.8rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.news-featured-content p {
+  color: var(--color-text);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.news-meta {
+  font-size: 0.85rem;
+  color: var(--color-text);
+}
+
+/* =========================
+   NEWS GRID
+========================= */
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+/* =========================
+   NEWS CARD
+========================= */
+
+.news-card {
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-card-content {
+  padding: var(--spacing-md);
+}
+
+.news-card-content .tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--spacing-xs);
+}
+
+.news-card-content h3 {
+  font-size: 1.2rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.news-card-content p {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* =========================
+   READ MORE LINK
+========================= */
+
+.read-more {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  color: var(--color-accent);
+}
+
+/* ============================================================================
+   SECONDARY PAGES CSS - PART 4
+   CONTACT PAGE
+   ========================================================================== */
+
+/* =========================
+   CONTACT BASE LAYOUT
+========================= */
+
+.contact-section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  background: var(--color-light-bg);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+   CONTACT HEADER
+========================= */
+
+.contact-header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.contact-header h1 {
+  font-size: 2.6rem;
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.contact-header p {
+  font-size: 1.1rem;
+  color: var(--color-text);
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+/* =========================
+   CONTACT LAYOUT GRID
+========================= */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+.contact-form {
+  background: var(--color-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.contact-form h2 {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-dark);
+}
+
+.form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-family: inherit;
+  transition: var(--transition);
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(27, 94, 32, 0.15);
+}
+
+/* =========================
+   SUBMIT BUTTON
+========================= */
+
+.contact-form button {
+  width: 100%;
+  padding: 14px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.contact-form button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* =========================
+   CONTACT INFO CARDS
+========================= */
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.contact-card {
+  background: var(--color-white);
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.contact-card-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--soft-green);
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-size: 1.2rem;
+}
+
+.contact-card h4 {
+  margin-bottom: 4px;
+  color: var(--color-text-dark);
+}
+
+.contact-card p {
+  font-size: 0.9rem;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+/* =========================
+   MAP SECTION (OPTIONAL)
+========================= */
+
+.contact-map {
+  margin-top: var(--spacing-2xl);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 350px;
+  border: 0;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .news-featured {
+    flex-direction: column;
+  }
+
+  .news-featured img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .director-profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .director-image {
+    flex: unset;
+  }
+}
+
+.values-section {
+  background: var(--color-white);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
+.value-card {
+  background: var(--color-light-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+}
+
+.value-icon {
+  font-size: 2rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.value-card h3 {
+  color: var(--color-text-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.value-card p {
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+/* ================================
+   CONTACT PAGE IMPROVEMENTS
+================================ */
+
+.contact-info-grid,
+.ways-grid,
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+/* Cards */
+.contact-info-card,
+.way-card,
+.faq-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+
+.contact-info-card:hover,
+.way-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icons */
+.contact-icon,
+.way-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+/* Form */
+.contact-form-section {
+  background: #f8f9fa;
+  padding: 60px 0;
+}
+
+.form-wrapper {
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+input, select, textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #1B5E20;
+  outline: none;
+}
+
+/* Map */
+.map-container iframe {
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* FAQ */
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: #555;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* =========================
+   PRO CONTACT PAGE DESIGN
+========================= */
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* GRID */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* SECTION */
+.section {
+  padding: 70px 0;
+}
+
+.section.light {
+  background: #f6f8f7;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* FORM */
+.contact-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+}
+
+textarea {
+  margin-bottom: 15px;
+}
+
+/* BUTTON */
+.btn-primary {
+  background: #1B5E20;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* MAP */
+.map-box iframe {
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* FAQ */
+.faq-item {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: #555;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* WHATSAPP BUTTON HOVER */
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+
+
+

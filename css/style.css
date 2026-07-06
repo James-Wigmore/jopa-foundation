@@ -52,6 +52,15 @@
   --z-modal: 2000;
 }
 
+/* Optional enhancements (safe additions) */
+:root {
+  --container-width: 1200px;
+
+  /* Extra helper colors (optional) */
+  --soft-green: #E8F5E9;
+  --soft-gold: rgba(244, 180, 0, 0.15);
+}
+
 /* ============================================================================
    RESET & BASE STYLES
    ========================================================================== */
@@ -190,10 +199,6 @@ li {
     align-items:center;
 }
 
-nav{
-    margin-left:auto;
-}
-
 .nav-menu{
     display:flex;
     gap:35px;
@@ -202,17 +207,6 @@ nav{
     padding:0;
 }
 
-.logo{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:15px;
-
-    text-decoration:none;
-
-}
 
 .logo-img{
     width:120px;
@@ -1101,15 +1095,6 @@ nav{
    RESPONSIVE DESIGN
    ========================================================================== */
 
-@media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
   .hamburger.active + .nav-menu {
     display: flex;
     position: absolute;
@@ -1187,4 +1172,59 @@ nav{
   .search-toggle {
     margin-right: var(--spacing-sm);
   }
+}
+
+/* =========================
+   NAVBAR FIX (SAFE VERSION)
+========================= */
+
+nav, .navbar, #navbar {
+  width: 100%;
+}
+
+/* KEEP STRUCTURE IN CENTER */
+.nav-container {
+  max-width: 1200px;   /* key fix */
+  width: 100%;
+  margin: 0 auto;      /* centers navbar */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 30px;
+  box-sizing: border-box;
+}
+
+/* LOGO GROUP */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.logo-container img {
+  height: 55px;
+  width: auto;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  white-space: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  white-space: nowrap;
+}
+
+/* OPTIONAL SAFETY FOR OLD CONTAINER RULES */
+nav .container {
+  max-width: 1200px !important;
+  margin: 0 auto;
+  padding: 0 30px;
 }

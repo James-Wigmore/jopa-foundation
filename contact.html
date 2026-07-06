@@ -3,224 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact JOPA Foundation Uganda - Get in touch to volunteer, partner, donate, or learn more about our work.">
-  <meta name="keywords" content="Contact, Volunteer, Donate, Partnership, JOPA Foundation Uganda">
-  <meta name="author" content="JOPA Foundation Uganda">
-  <meta property="og:title" content="Contact Us - JOPA Foundation Uganda">
-  <meta property="og:description" content="Get in touch with JOPA Foundation Uganda. We'd love to hear from you!">
-  <meta property="og:url" content="https://James-Wigmore.github.io/jopa-foundation/contact.html">
-  <meta name="theme-color" content="#1B5E20">
-  <link rel="icon" type="image/png" href="./images/favicon.png">
-  <link rel="stylesheet" href="./css/style.css">
+
   <title>Contact Us - JOPA Foundation Uganda</title>
+
+  <meta name="description" content="Contact JOPA Foundation Uganda - volunteer, partner, donate or get support.">
+  <meta name="theme-color" content="#1B5E20">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/secondary-pages.css">
+
+  <!-- WhatsApp floating button style (quick inline for now) -->
+  <style>
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      color: white;
+      padding: 14px 16px;
+      border-radius: 50px;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+  </style>
 </head>
+
 <body>
-  <!-- Navigation -->
-  
-  <div id="navbar"></div>
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="page-hero-background" style="background-image: url('./images/contact-hero.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <h1 class="page-title fade-in-up">Get In Touch</h1>
-      <p class="page-subtitle fade-in-up">We'd love to hear from you</p>
-    </div>
-  </section>
 
-  <!-- Main Content -->
-  <main>
-    <!-- Contact Information Section -->
-    <section class="section">
-      <div class="container">
-        <div class="contact-info-grid">
-          <div class="contact-info-card scroll-reveal">
-            <div class="contact-icon">📧</div>
-            <h3>Email</h3>
-            <p><a href="mailto:admin@jopafoundation.org">admin@jopafoundation.org</a></p>
-            <p><a href="mailto:admin@jopafoundation.org">admin@jopafoundation.org</a></p>
-            <p class="contact-note">Typically respond within 24 hours</p>
-          </div>
-          <div class="contact-info-card scroll-reveal">
-            <div class="contact-icon">📱</div>
-            <h3>Phone</h3>
-            <p><a href="tel:+256773382591">+256 773 382 591</a></p>
-            <p><a href="tel:+256759920990">+256 759 920 990</a></p>
-            <p class="contact-note">Monday - Friday: 8:30 AM - 5:30 PM</p>
-          </div>
-          <div class="contact-info-card scroll-reveal">
-            <div class="contact-icon">📍</div>
-            <h3>Physical Address</h3>
-            <p>JOPA Foundation Uganda</p>
-            <p>Willa Sub-county</p>
-            <p>Amuria, Uganda</p>
-          </div>
-          <div class="contact-info-card scroll-reveal">
-            <div class="contact-icon">💬</div>
-            <h3>WhatsApp</h3>
-            <p><a href="https://wa.me/256773382591" target="_blank">Chat with us on WhatsApp</a></p>
-            <p class="contact-note">Quick response for urgent inquiries</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<div id="navbar"></div>
 
-    <!-- Contact Form Section -->
-    <section class="section contact-form-section">
-      <div class="container">
-        <div class="form-wrapper scroll-reveal">
-          <div class="form-header">
-            <h2>Send us a Message</h2>
-            <p>Fill out the form below and we'll get back to you as soon as possible.</p>
-          </div>
-          <form id="contactForm" class="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Full Name *</label>
-                <input type="text" id="name" name="name" required aria-label="Full Name">
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" required aria-label="Email Address">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" aria-label="Phone Number">
-              </div>
-              <div class="form-group">
-                <label for="subject">Subject *</label>
-                <select id="subject" name="subject" required aria-label="Subject">
-                  <option value="">Select a subject</option>
-                  <option value="volunteer">I want to volunteer</option>
-                  <option value="partnership">Partnership opportunity</option>
-                  <option value="donate">I want to donate</option>
-                  <option value="general">General inquiry</option>
-                  <option value="media">Media inquiry</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="message">Message *</label>
-              <textarea id="message" name="message" rows="6" required aria-label="Message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-large">Send Message</button>
-            <p class="form-note">We respect your privacy. Your information will only be used to respond to your inquiry.</p>
-          </form>
-        </div>
-      </div>
-    </section>
+<!-- HERO -->
+<section class="page-hero">
+  <div class="page-hero-background" style="background-image:url('./images/contact-hero.jpg');"></div>
+  <div class="page-hero-overlay"></div>
 
-    <!-- Map Section -->
-    <section class="section map-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title scroll-reveal">Visit Us</h2>
-          <div class="title-underline"></div>
-        </div>
-        <div class="map-container scroll-reveal">
-          <div id="map" class="map-placeholder">
-            <!-- Google Maps embed or placeholder -->
-            <iframe src="https://www.google.com/maps/place/2%C2%B007'07.9%22N+33%C2%B039'10.6%22E/@2.1188632,33.6527098,73m/data=!3m1!1e3!4m12!1m7!3m6!1s0x17777c8ef6555555:0x350cf9652e481c93!2sWilla+Primary+School!8m2!3d2.1034286!4d33.6541153!16s%2Fg%2F11k4y9l_60!3m3!8m2!3d2.118871!4d33.652955?entry=ttu&g_ep=EgoyMDI2MDYyNC4wIKXMDSoASAFQAw%3D%3D" width="100%" height="400" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="JOPA Foundation Uganda Location"></iframe>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Ways to Help Section -->
-    <section class="section ways-to-help-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title scroll-reveal">Ways You Can Help</h2>
-          <div class="title-underline"></div>
-        </div>
-        <div class="ways-grid">
-          <div class="way-card scroll-reveal">
-            <div class="way-icon">🤝</div>
-            <h3>Become a Volunteer</h3>
-            <p>Join our team of dedicated volunteers and make a direct impact in communities. No experience necessary - we provide training.</p>
-            <a href="#contactForm" class="btn btn-outline">Get Started</a>
-          </div>
-          <div class="way-card scroll-reveal">
-            <div class="way-icon">💼</div>
-            <h3>Partner With Us</h3>
-            <p>Corporate partnerships, government collaboration, or NGO partnerships - let's work together for greater impact.</p>
-            <a href="#contactForm" class="btn btn-outline">Learn More</a>
-          </div>
-          <div class="way-card scroll-reveal">
-            <div class="way-icon">💝</div>
-            <h3>Make a Donation</h3>
-            <p>Your financial contribution directly supports our programs and creates sustainable change in communities.</p>
-            <a href="#contactForm" class="btn btn-outline">Donate Now</a>
-          </div>
-          <div class="way-card scroll-reveal">
-            <div class="way-icon">📢</div>
-            <h3>Spread the Word</h3>
-            <p>Share our mission with your network. Your voice helps us reach more communities and supporters.</p>
-            <a href="#" class="btn btn-outline">Share</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section faq-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title scroll-reveal">Frequently Asked Questions</h2>
-          <div class="title-underline"></div>
-        </div>
-        <div class="faq-grid">
-          <div class="faq-item scroll-reveal">
-            <div class="faq-question">
-              <h3>How can I volunteer with JOPA Foundation Uganda?</h3>
-              <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-              <p>You can volunteer by filling out our contact form with "I want to volunteer" as the subject. We'll respond with available opportunities and next steps. No experience is necessary!</p>
-            </div>
-          </div>
-          <div class="faq-item scroll-reveal">
-            <div class="faq-question">
-              <h3>How can I make a donation?</h3>
-              <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-              <p>You can donate through our website or contact us directly for bank transfer details. All donations are securely processed and used to support our programs.</p>
-            </div>
-          </div>
-          <div class="faq-item scroll-reveal">
-            <div class="faq-question">
-              <h3>What is your organization's registration status?</h3>
-              <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-              <p>JOPA Foundation Uganda is currently undergoing registration. We are committed to full transparency and compliance with all regulatory requirements.</p>
-            </div>
-          </div>
-          <div class="faq-item scroll-reveal">
-            <div class="faq-question">
-              <h3>Can organizations partner with JOPA Foundation Uganda?</h3>
-              <span class="faq-toggle">+</span>
-            </div>
-            <div class="faq-answer">
-              <p>Yes! We welcome partnerships with NGOs, government agencies, and private sector organizations. Contact us to discuss collaboration opportunities.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Latest News Section -->
+  <div class="page-hero-content">
+    <h1>Get In Touch</h1>
+    <p>We respond within 24 hours</p>
+  </div>
 </section>
+
+<main>
+
+<!-- CONTACT INFO -->
+<section class="section">
+  <div class="container">
+
+    <div class="grid-3">
+
+      <div class="card">
+        <h3>📧 Email</h3>
+        <p><a href="mailto:admin@jopafoundation.org">admin@jopafoundation.org</a></p>
+      </div>
+
+      <div class="card">
+        <h3>📱 Phone</h3>
+        <p><a href="tel:+256773382591">+256 773 382 591</a></p>
+        <p><a href="tel:+256759920990">+256 759 920 990</a></p>
+      </div>
+
+      <div class="card">
+        <h3>📍 Location</h3>
+        <p>Willa Sub-county</p>
+        <p>Amuria, Uganda</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="section light">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Send a Message</h2>
+      <p>We’ll respond as soon as possible</p>
+    </div>
+
+    <form class="contact-form">
+
+      <div class="form-row">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="form-row">
+        <input type="tel" placeholder="Phone Number">
+        <select required>
+          <option value="">Select Subject</option>
+          <option>Volunteer</option>
+          <option>Donation</option>
+          <option>Partnership</option>
+          <option>General Inquiry</option>
+        </select>
+      </div>
+
+      <textarea rows="6" placeholder="Your message..." required></textarea>
+
+      <button type="submit" class="btn-primary">Send Message</button>
+
+      <p class="form-note">
+        Your information is safe and only used for communication.
+      </p>
+
+    </form>
+
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="section">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Visit Us</h2>
+    </div>
+
+    <div class="map-box">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%"
+        height="380"
+        style="border:0;"
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section light">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq">
+
+      <div class="faq-item">
+        <div class="faq-question">How do I volunteer? <span>+</span></div>
+        <div class="faq-answer">Fill the form above and select “Volunteer”.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">How do I donate? <span>+</span></div>
+        <div class="faq-answer">We will guide you via email or phone after contact.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">Can organizations partner? <span>+</span></div>
+        <div class="faq-answer">Yes, we welcome partnerships from NGOs and companies.</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
 
 <div id="footer"></div>
 
-   <!-- Scripts -->
- <script src="js/script.js"></script>
+<!-- WhatsApp Button -->
+<a class="whatsapp-float" href="https://wa.me/256773382591" target="_blank">
+  💬
+</a>
+
 <script src="js/include.js"></script>
+
+<!-- FAQ SCRIPT -->
+<script>
+  const items = document.querySelectorAll(".faq-item");
+
+  items.forEach(item => {
+    item.querySelector(".faq-question").addEventListener("click", () => {
+      item.classList.toggle("active");
+    });
+  });
+</script>
+
 </body>
 </html>

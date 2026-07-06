@@ -552,39 +552,73 @@
 }
 
 /* ==========================================================================
-   PROJECT OVERVIEW
+   PROJECT PORTFOLIO OVERVIEW
    ========================================================================== */
 
-.project-overview-grid{
+.impact-summary-section{
+    background:#f8fafc;
+    padding:90px 0;
+}
+
+.impact-summary-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:30px;
-    margin-top:50px;
+    margin-top:60px;
 }
 
-.overview-card{
+.impact-summary-card{
     background:#fff;
-    padding:30px;
     border-radius:18px;
+    padding:35px 25px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:all .35s ease;
+    border:1px solid rgba(27,94,32,.08);
 }
 
-.overview-card:hover{
-    transform:translateY(-6px);
+.impact-summary-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 18px 40px rgba(0,0,0,.12);
 }
 
-.overview-number{
+.summary-number{
     font-size:3rem;
     font-weight:800;
     color:#1B5E20;
-    margin-bottom:10px;
+    line-height:1;
+    margin-bottom:15px;
 }
 
-.overview-label{
+.summary-label{
+    font-size:1rem;
     color:#666;
-    line-height:1.5;
+    line-height:1.6;
+    font-weight:500;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:992px){
+
+    .impact-summary-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:576px){
+
+    .impact-summary-grid{
+        grid-template-columns:1fr;
+    }
+
+    .summary-number{
+        font-size:2.6rem;
+    }
+
 }
 
 /* ==========================================================================
