@@ -1,14 +1,85 @@
-// Scroll-reveal for elements marked .scroll-reveal
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
+// =========================================================
+// SHARED FORM SUBMISSION HANDLER — Formspree
+// Handles every form on every page, including the newsletter form in
+// the footer (which is injected asynchronously by include.js, so this
+// waits for the 'includes:loaded' event to make sure it exists first).
+//
+// SETUP: create a free form at https://formspree.io, then paste your
+// form ID below in place of YOUR_FORM_ID_HERE. See README-FORMS.md.
+// =========================================================
+const FORMSPREE_ID = "YOUR_FORM_ID_HERE";
+const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
 
-document.querySelectorAll('.scroll-reveal').forEach(el => revealObserver.observe(el));
+function wireUpForms() {
+  document.querySelectorAll('form[data-form-name]').forEach(form => {
+    if (form.dataset.wired === 'true') return; // avoid double-binding
+    form.dataset.wired = 'true';
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      const submitBtn = form.querySelector('button[type="submit"], button:not([type])');
+      const originalText = submitBtn ? submitBtn.textContent : '';
+      const successTarget = form.dataset.successTarget;
+      const success = successTarget ? document.querySelector(`[data-success-for="${successTarget}"]`) : null;
+
+      if (FORMSPREE_ID === "YOUR_FORM_ID_HERE") {
+        alert("Forms aren't connected yet — add your Formspree form ID in js/script.js (see README-FORMS.md).");
+        return;
+      }
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending..."; }
+
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: "POST",
+          headers: { "Accept": "application/json" },
+          body: new FormData(form)
+        });
+
+        if (res.ok) {
+          form.style.display = "none";
+          if (success) {
+            success.style.display = "block";
+            success.classList.add("visible");
+          }
+        } else {
+          throw new Error("Formspree responded with an error");
+        }
+      } catch (err) {
+        console.error("Form submission failed:", err);
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalText; }
+        alert("Sorry, something went wrong sending this — please try again, or reach us directly at admin@jopafoundation.org.");
+      }
+    });
+  });
+}
+
+// Static, same-page forms (e.g. contact.html) exist immediately;
+// the footer's form is injected asynchronously. 'includes:loaded'
+// (dispatched by include.js) fires after both are guaranteed to exist,
+// so wiring everything up at that point covers both cases reliably.
+document.addEventListener('includes:loaded', wireUpForms);
+// Fallback in case a page doesn't use include.js at all.
+document.addEventListener('DOMContentLoaded', () => setTimeout(wireUpForms, 300));
+// Reusable "observe once" helper — watches elements matching `selector`,
+// runs `callback(element)` the moment each one scrolls into view, then
+// stops watching it. Used below for both scroll-reveal and count-up
+// animations, which previously duplicated this same observer pattern.
+function observeOnce(selector, threshold, callback) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        callback(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold });
+  document.querySelectorAll(selector).forEach(el => observer.observe(el));
+}
+
+observeOnce('.scroll-reveal', 0.15, el => el.classList.add('is-visible'));
 
 // Safety net: if for any reason an element never gets marked visible
 // (observer misfires, element sits in a zero-height container, etc.),
@@ -38,16 +109,7 @@ function animateCount(el) {
   requestAnimationFrame(tick);
 }
 
-const countObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCount(entry.target);
-      countObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.4 });
-
-document.querySelectorAll('.impact-number[data-count], .stat-number[data-count]').forEach(el => countObserver.observe(el));
+observeOnce('.impact-number[data-count], .stat-number[data-count]', 0.4, animateCount);
 
 // Pulse the district dots on the hero map in a soft staggered sequence
 document.querySelectorAll('.district-dot').forEach((dot, i) => {

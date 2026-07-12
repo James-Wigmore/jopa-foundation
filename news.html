@@ -8,7 +8,7 @@
 <meta content="JOPA Foundation Uganda" name="author"/>
 <meta content="News &amp; Updates - JOPA Foundation Uganda" property="og:title"/>
 <meta content="#1B4332" name="theme-color"/>
-<link href="./images/favicon.png" rel="icon"/>
+<link href="./assets/images/favicon.png" rel="icon"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&amp;family=Work+Sans:wght@400;500;600&amp;family=IBM+Plex+Mono:wght@500;600&amp;display=swap" rel="stylesheet"/>
@@ -34,7 +34,7 @@
 <div class="news-content">
 <div class="news-date">📅 June 20, 2026</div>
 <h3>JOPA Foundation Uganda Launches Digital Skills Program</h3>
-<p>We've launched our comprehensive digital skills program targeting 1,000 youth across five districts. The program includes training in web development, mobile app creation, and digital marketing.</p>
+<p>We've launched our comprehensive digital skills program targeting youth in our district, with plans to expand. The program includes training in web development, mobile app creation, and digital marketing.</p>
 <a class="btn btn-text" href="#">Read More →</a>
 </div>
 </article>
@@ -60,8 +60,8 @@
 <div class="news-image"><span class="news-category">Leadership</span></div>
 <div class="news-content">
 <div class="news-date">📅 June 5, 2026</div>
-<h3>150 Youth Leaders Graduate from Academy</h3>
-<p>Congratulations to our first cohort of 150 young leaders who have completed the Youth Leadership Academy, now equipped with skills in governance, social entrepreneurship, and community mobilization.</p>
+<h3>Young Leaders Complete Empowerment Training</h3>
+<p>Congratulations to our first cohort of young leaders who have completed leadership training under our Youth &amp; Women Empowerment program, now equipped with skills in governance, social entrepreneurship, and community mobilization.</p>
 <a class="btn btn-text" href="#">Read More →</a>
 </div>
 </article>
@@ -70,7 +70,7 @@
 <div class="news-content">
 <div class="news-date">📅 May 28, 2026</div>
 <h3>Environmental Project Reaches 50,000 Trees Planted</h3>
-<p>Our reforestation initiative has reached a major milestone with 50,000 trees planted across five districts — a tremendous community effort toward environmental restoration and climate action.</p>
+<p>Our reforestation initiative has reached a major early milestone in our district — a tremendous community effort toward environmental restoration and climate action.</p>
 <a class="btn btn-text" href="#">Read More →</a>
 </div>
 </article>
@@ -109,7 +109,7 @@
 <div class="newsletter-content">
 <h2>Stay Updated</h2>
 <p>Subscribe to our newsletter to receive the latest news and updates from JOPA Foundation Uganda.</p>
-<form class="newsletter-form" data-form-name="Newsletter signup">
+<form class="newsletter-form" data-form-name="Newsletter signup" data-success-target="newsletter">
 <input name="_subject" type="hidden" value="New newsletter signup — JOPA Foundation Uganda site"/>
 <label class="sr-only" for="email-0">Email Address</label><input id="email-0" name="email" placeholder="Enter your email" required="" type="email"/>
 <button class="btn btn-primary" type="submit">Subscribe</button>
@@ -136,45 +136,5 @@
 <div id="footer"></div>
 <script src="js/include.js"></script>
 <script src="js/script.js"></script>
-<script>
-// Same Formspree form ID as contact.html — paste yours here too, or better,
-// keep this in sync manually since these are static files (no shared config).
-const FORMSPREE_ID = "YOUR_FORM_ID_HERE";
-const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
-
-document.querySelector('.newsletter-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const originalText = submitBtn.textContent;
-
-  if (FORMSPREE_ID === "YOUR_FORM_ID_HERE") {
-    alert("Newsletter signup isn't connected yet — add your Formspree form ID at the top of the script on this page.");
-    return;
-  }
-
-  submitBtn.disabled = true;
-  submitBtn.textContent = "Subscribing...";
-
-  try {
-    const res = await fetch(FORMSPREE_ENDPOINT, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: new FormData(form)
-    });
-    if (res.ok) {
-      form.style.display = 'none';
-      document.querySelector('[data-success-for="newsletter"]').style.display = 'block';
-    } else {
-      throw new Error("Formspree responded with an error");
-    }
-  } catch (err) {
-    console.error("Newsletter signup failed:", err);
-    submitBtn.disabled = false;
-    submitBtn.textContent = originalText;
-    alert("Sorry, something went wrong — please try again.");
-  }
-});
-</script>
 </body>
 </html>
