@@ -4,11 +4,29 @@
 // the footer (which is injected asynchronously by include.js, so this
 // waits for the 'includes:loaded' event to make sure it exists first).
 //
-// SETUP: create a free form at https://formspree.io, then paste your
-// form ID below in place of YOUR_FORM_ID_HERE. See README-FORMS.md.
+// SETUP: JOPA Foundation Uganda uses SEPARATE Formspree forms per
+// submission type (Donate / Partner / Volunteer / General Contact),
+// so each form on the site is looked up by its data-form-name and
+// routed to its own Formspree ID below. Paste your real IDs in place
+// of each placeholder. If a data-form-name isn't listed here, it
+// falls back to FORMSPREE_IDS["General inquiry"].
 // =========================================================
-const FORMSPREE_ID = "YOUR_FORM_ID_HERE";
-const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
+const FORMSPREE_IDS = {
+  "Volunteer application": "mzdnprpk",
+  "Partnership inquiry": "mvzepape",
+  "Donation intent": "xbdnrojl",
+  "General inquiry": "meeyjabv",
+  // Both newsletter signup forms route to General Contact by default —
+  // give them their own key here (and their own Formspree form) if you
+  // want newsletter signups tracked separately.
+  "Newsletter signup": "meeyjabv",
+  "Footer newsletter signup": "meeyjabv"
+};
+
+function getFormspreeId(form) {
+  const name = form.dataset.formName;
+  return FORMSPREE_IDS[name] || FORMSPREE_IDS["General inquiry"];
+}
 
 function wireUpForms() {
   document.querySelectorAll('form[data-form-name]').forEach(form => {
@@ -24,15 +42,17 @@ function wireUpForms() {
       const successTarget = form.dataset.successTarget;
       const success = successTarget ? document.querySelector(`[data-success-for="${successTarget}"]`) : null;
 
-      if (FORMSPREE_ID === "YOUR_FORM_ID_HERE") {
-        alert("Forms aren't connected yet — add your Formspree form ID in js/script.js (see README-FORMS.md).");
+      const formspreeId = getFormspreeId(form);
+      if (!formspreeId || formspreeId.startsWith("YOUR_")) {
+        alert(`Forms aren't connected yet — add the real Formspree ID for "${form.dataset.formName}" in js/script.js (FORMSPREE_IDS).`);
         return;
       }
+      const endpoint = `https://formspree.io/f/${formspreeId}`;
 
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending..."; }
 
       try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
+        const res = await fetch(endpoint, {
           method: "POST",
           headers: { "Accept": "application/json" },
           body: new FormData(form)
@@ -182,4 +202,73 @@ document.querySelectorAll('.scroll-row').forEach(row => {
       wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
   });
+});
+
+// =========================================================
+// WIDE TABLE ENHANCEMENTS — any table.data-table with more than
+// 3 columns gets the same scroll-arrow treatment as the card
+// carousels above (for horizontal overflow on narrow screens),
+// plus a "View All" toggle if it has more than 3 body rows so
+// long budget breakdowns start collapsed and expand on request.
+// =========================================================
+document.querySelectorAll('table.data-table').forEach(table => {
+  const headerCells = table.querySelectorAll('thead th');
+  if (headerCells.length <= 3) return;
+
+  const responsiveWrap = table.closest('.table-responsive');
+  if (!responsiveWrap || responsiveWrap.dataset.enhanced === 'true') return;
+  responsiveWrap.dataset.enhanced = 'true';
+
+  // --- Horizontal scroll arrows (mirrors the .scroll-row-wrapper pattern) ---
+  const outer = document.createElement('div');
+  outer.className = 'table-scroll-wrapper';
+  responsiveWrap.parentNode.insertBefore(outer, responsiveWrap);
+  outer.appendChild(responsiveWrap);
+
+  if (responsiveWrap.scrollWidth > responsiveWrap.clientWidth + 4) {
+    const prevBtn = document.createElement('button');
+    prevBtn.className = 'scroll-arrow prev';
+    prevBtn.setAttribute('aria-label', 'Scroll table left');
+    prevBtn.innerHTML = '&#8249;';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.className = 'scroll-arrow next';
+    nextBtn.setAttribute('aria-label', 'Scroll table right');
+    nextBtn.innerHTML = '&#8250;';
+
+    outer.appendChild(prevBtn);
+    outer.appendChild(nextBtn);
+
+    const scrollStep = () => responsiveWrap.clientWidth * 0.7;
+    prevBtn.addEventListener('click', () => responsiveWrap.scrollBy({ left: -scrollStep(), behavior: 'smooth' }));
+    nextBtn.addEventListener('click', () => responsiveWrap.scrollBy({ left: scrollStep(), behavior: 'smooth' }));
+
+    const updateArrows = () => {
+      prevBtn.disabled = responsiveWrap.scrollLeft <= 4;
+      nextBtn.disabled = responsiveWrap.scrollLeft >= responsiveWrap.scrollWidth - responsiveWrap.clientWidth - 4;
+    };
+    updateArrows();
+    responsiveWrap.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows);
+  }
+
+  // --- "View All" toggle for tables with more than 3 data rows ---
+  const bodyRows = table.querySelectorAll('tbody tr');
+  if (bodyRows.length > 3) {
+    responsiveWrap.classList.add('table-row-limit');
+    const viewAllBtn = document.createElement('button');
+    viewAllBtn.className = 'btn btn-outline table-view-all-btn';
+    viewAllBtn.textContent = `View All ${bodyRows.length} Rows`;
+    outer.insertAdjacentElement('afterend', viewAllBtn);
+
+    let expanded = false;
+    viewAllBtn.addEventListener('click', () => {
+      expanded = !expanded;
+      responsiveWrap.classList.toggle('table-expanded', expanded);
+      viewAllBtn.textContent = expanded ? 'Show Fewer Rows' : `View All ${bodyRows.length} Rows`;
+      if (!expanded) {
+        outer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }
 });
