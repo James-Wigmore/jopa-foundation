@@ -4,11 +4,29 @@
 // the footer (which is injected asynchronously by include.js, so this
 // waits for the 'includes:loaded' event to make sure it exists first).
 //
-// SETUP: create a free form at https://formspree.io, then paste your
-// form ID below in place of YOUR_FORM_ID_HERE. See README-FORMS.md.
+// SETUP: JOPA Foundation Uganda uses SEPARATE Formspree forms per
+// submission type (Donate / Partner / Volunteer / General Contact),
+// so each form on the site is looked up by its data-form-name and
+// routed to its own Formspree ID below. Paste your real IDs in place
+// of each placeholder. If a data-form-name isn't listed here, it
+// falls back to FORMSPREE_IDS["General inquiry"].
 // =========================================================
-const FORMSPREE_ID = "YOUR_FORM_ID_HERE";
-const FORMSPREE_ENDPOINT = `https://formspree.io/f/${FORMSPREE_ID}`;
+const FORMSPREE_IDS = {
+  "Volunteer application": "YOUR_VOLUNTEER_FORM_ID",
+  "Partnership inquiry": "YOUR_PARTNER_FORM_ID",
+  "Donation intent": "YOUR_DONATE_FORM_ID",
+  "General inquiry": "YOUR_GENERAL_CONTACT_FORM_ID",
+  // Both newsletter signup forms route to General Contact by default —
+  // give them their own key here (and their own Formspree form) if you
+  // want newsletter signups tracked separately.
+  "Newsletter signup": "YOUR_GENERAL_CONTACT_FORM_ID",
+  "Footer newsletter signup": "YOUR_GENERAL_CONTACT_FORM_ID"
+};
+
+function getFormspreeId(form) {
+  const name = form.dataset.formName;
+  return FORMSPREE_IDS[name] || FORMSPREE_IDS["General inquiry"];
+}
 
 function wireUpForms() {
   document.querySelectorAll('form[data-form-name]').forEach(form => {
@@ -24,15 +42,17 @@ function wireUpForms() {
       const successTarget = form.dataset.successTarget;
       const success = successTarget ? document.querySelector(`[data-success-for="${successTarget}"]`) : null;
 
-      if (FORMSPREE_ID === "YOUR_FORM_ID_HERE") {
-        alert("Forms aren't connected yet — add your Formspree form ID in js/script.js (see README-FORMS.md).");
+      const formspreeId = getFormspreeId(form);
+      if (!formspreeId || formspreeId.startsWith("YOUR_")) {
+        alert(`Forms aren't connected yet — add the real Formspree ID for "${form.dataset.formName}" in js/script.js (FORMSPREE_IDS).`);
         return;
       }
+      const endpoint = `https://formspree.io/f/${formspreeId}`;
 
       if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = "Sending..."; }
 
       try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
+        const res = await fetch(endpoint, {
           method: "POST",
           headers: { "Accept": "application/json" },
           body: new FormData(form)
