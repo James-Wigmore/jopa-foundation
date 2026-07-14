@@ -291,7 +291,7 @@ document.getElementById('amountGrid').addEventListener('click', (e) => {
   if (!chip) return;
   document.querySelectorAll('.amount-chip').forEach(c => c.classList.remove('selected'));
   chip.classList.add('selected');
-  const customInput = document.getElementById('customAmount');
+  const customInput = document.getElementById('custom_amount-2');
   customInput.style.display = chip.dataset.amount === 'custom' ? 'block' : 'none';
   if (chip.dataset.amount !== 'custom') customInput.value = '';
 });

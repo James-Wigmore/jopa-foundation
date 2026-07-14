@@ -379,45 +379,6 @@ h1, h2, h3, h4 {
 @media (max-width: 860px) { .impact-grid { grid-template-columns: 1fr 1fr; row-gap: 34px; } }
 
 /* =========================================================
-   FOCUS AREAS (PROGRAMS)
-   ========================================================= */
-.programs-section { background: var(--cream); }
-.programs-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.program-card {
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 30px 26px;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.2s ease;
-}
-.program-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 36px rgba(22,35,28,0.1);
-  border-color: transparent;
-}
-.program-icon {
-  width: 48px; height: 48px;
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.3rem;
-  margin-bottom: 16px;
-  transition: transform 0.25s ease;
-}
-.program-card:hover .program-icon { transform: scale(1.1) rotate(-4deg); }
-.program-card:nth-child(3n+1) .program-icon { background: rgba(181,72,52,0.12); }
-.program-card:nth-child(3n+2) .program-icon { background: rgba(224,160,48,0.18); }
-.program-card:nth-child(3n+3) .program-icon { background: rgba(27,67,50,0.12); }
-.program-card h3 { font-size: 1.08rem; margin-bottom: 8px; }
-.program-card p { color: var(--ink-soft); font-size: 0.94rem; }
-
-@media (max-width: 860px) { .programs-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .programs-grid { grid-template-columns: 1fr; } }
-
-/* =========================================================
    FEATURED PROJECTS
    ========================================================= */
 .featured-projects-section { background: var(--paper); }
@@ -717,47 +678,41 @@ h1, h2, h3, h4 {
 /* Staggered scroll-reveal delays for anything sitting in a grid,
    so cards cascade in one after another instead of popping in at once. */
 .causes-grid > .scroll-reveal:nth-child(1), .testimonials-grid > .scroll-reveal:nth-child(1),
-.steps-grid > .scroll-reveal:nth-child(1), .programs-grid > .scroll-reveal:nth-child(1),
-.projects-grid > .scroll-reveal:nth-child(1), .news-grid > .scroll-reveal:nth-child(1),
+.steps-grid > .scroll-reveal:nth-child(1), .projects-grid > .scroll-reveal:nth-child(1), .news-grid > .scroll-reveal:nth-child(1),
 .programs-detailed-grid > .scroll-reveal:nth-child(1), .board-grid > .scroll-reveal:nth-child(1),
 .executive-grid > .scroll-reveal:nth-child(1), .approach-grid > .scroll-reveal:nth-child(1),
 .values-grid > .scroll-reveal:nth-child(1), .grid-3 > .scroll-reveal:nth-child(1),
 .masonry-gallery > .scroll-reveal:nth-child(1) { transition-delay: 0.03s; }
 
 .causes-grid > .scroll-reveal:nth-child(2), .testimonials-grid > .scroll-reveal:nth-child(2),
-.steps-grid > .scroll-reveal:nth-child(2), .programs-grid > .scroll-reveal:nth-child(2),
-.projects-grid > .scroll-reveal:nth-child(2), .news-grid > .scroll-reveal:nth-child(2),
+.steps-grid > .scroll-reveal:nth-child(2), .projects-grid > .scroll-reveal:nth-child(2), .news-grid > .scroll-reveal:nth-child(2),
 .programs-detailed-grid > .scroll-reveal:nth-child(2), .board-grid > .scroll-reveal:nth-child(2),
 .executive-grid > .scroll-reveal:nth-child(2), .approach-grid > .scroll-reveal:nth-child(2),
 .values-grid > .scroll-reveal:nth-child(2), .grid-3 > .scroll-reveal:nth-child(2),
 .masonry-gallery > .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
 
 .causes-grid > .scroll-reveal:nth-child(3), .testimonials-grid > .scroll-reveal:nth-child(3),
-.steps-grid > .scroll-reveal:nth-child(3), .programs-grid > .scroll-reveal:nth-child(3),
-.projects-grid > .scroll-reveal:nth-child(3), .news-grid > .scroll-reveal:nth-child(3),
+.steps-grid > .scroll-reveal:nth-child(3), .projects-grid > .scroll-reveal:nth-child(3), .news-grid > .scroll-reveal:nth-child(3),
 .programs-detailed-grid > .scroll-reveal:nth-child(3), .board-grid > .scroll-reveal:nth-child(3),
 .executive-grid > .scroll-reveal:nth-child(3), .approach-grid > .scroll-reveal:nth-child(3),
 .values-grid > .scroll-reveal:nth-child(3), .grid-3 > .scroll-reveal:nth-child(3),
 .masonry-gallery > .scroll-reveal:nth-child(3) { transition-delay: 0.17s; }
 
-.causes-grid > .scroll-reveal:nth-child(4), .programs-grid > .scroll-reveal:nth-child(4),
-.programs-detailed-grid > .scroll-reveal:nth-child(4), .board-grid > .scroll-reveal:nth-child(4),
+.causes-grid > .scroll-reveal:nth-child(4), .programs-detailed-grid > .scroll-reveal:nth-child(4), .board-grid > .scroll-reveal:nth-child(4),
 .executive-grid > .scroll-reveal:nth-child(4), .approach-grid > .scroll-reveal:nth-child(4),
 .masonry-gallery > .scroll-reveal:nth-child(4) { transition-delay: 0.24s; }
 
-.causes-grid > .scroll-reveal:nth-child(5), .programs-grid > .scroll-reveal:nth-child(5),
-.programs-detailed-grid > .scroll-reveal:nth-child(5), .board-grid > .scroll-reveal:nth-child(5),
+.causes-grid > .scroll-reveal:nth-child(5), .programs-detailed-grid > .scroll-reveal:nth-child(5), .board-grid > .scroll-reveal:nth-child(5),
 .executive-grid > .scroll-reveal:nth-child(5), .masonry-gallery > .scroll-reveal:nth-child(5) { transition-delay: 0.3s; }
 
-.causes-grid > .scroll-reveal:nth-child(6), .programs-grid > .scroll-reveal:nth-child(6),
-.programs-detailed-grid > .scroll-reveal:nth-child(6), .board-grid > .scroll-reveal:nth-child(6),
+.causes-grid > .scroll-reveal:nth-child(6), .programs-detailed-grid > .scroll-reveal:nth-child(6), .board-grid > .scroll-reveal:nth-child(6),
 .masonry-gallery > .scroll-reveal:nth-child(6) { transition-delay: 0.37s; }
 
-.programs-grid > .scroll-reveal:nth-child(7), .programs-detailed-grid > .scroll-reveal:nth-child(7),
+.programs-detailed-grid > .scroll-reveal:nth-child(7),
 .masonry-gallery > .scroll-reveal:nth-child(7) { transition-delay: 0.43s; }
-.programs-grid > .scroll-reveal:nth-child(8), .programs-detailed-grid > .scroll-reveal:nth-child(8),
+.programs-detailed-grid > .scroll-reveal:nth-child(8),
 .masonry-gallery > .scroll-reveal:nth-child(8) { transition-delay: 0.5s; }
-.programs-grid > .scroll-reveal:nth-child(9), .programs-detailed-grid > .scroll-reveal:nth-child(9),
+.programs-detailed-grid > .scroll-reveal:nth-child(9),
 .masonry-gallery > .scroll-reveal:nth-child(9) { transition-delay: 0.56s; }
 .masonry-gallery > .scroll-reveal:nth-child(10) { transition-delay: 0.63s; }
 .masonry-gallery > .scroll-reveal:nth-child(11) { transition-delay: 0.7s; }
