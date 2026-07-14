@@ -12,15 +12,15 @@
 // falls back to FORMSPREE_IDS["General inquiry"].
 // =========================================================
 const FORMSPREE_IDS = {
-  "Volunteer application": "YOUR_VOLUNTEER_FORM_ID",
-  "Partnership inquiry": "YOUR_PARTNER_FORM_ID",
-  "Donation intent": "YOUR_DONATE_FORM_ID",
-  "General inquiry": "YOUR_GENERAL_CONTACT_FORM_ID",
+  "Volunteer application": "https://formspree.io/f/mzdnprpk",
+  "Partnership inquiry": "https://formspree.io/f/mvzepape",
+  "Donation intent": "https://formspree.io/f/xbdnrojl",
+  "General inquiry": "https://formspree.io/f/meeyjabv",
   // Both newsletter signup forms route to General Contact by default —
   // give them their own key here (and their own Formspree form) if you
   // want newsletter signups tracked separately.
-  "Newsletter signup": "YOUR_GENERAL_CONTACT_FORM_ID",
-  "Footer newsletter signup": "YOUR_GENERAL_CONTACT_FORM_ID"
+  "Newsletter signup": "https://formspree.io/f/meeyjabv",
+  "Footer newsletter signup": "https://formspree.io/f/meeyjabv"
 };
 
 function getFormspreeId(form) {
