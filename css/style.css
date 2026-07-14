@@ -882,13 +882,13 @@ h1, h2, h3, h4 {
    Until that file exists, onerror on the <img> falls back to the "JF"
    text mark automatically (see components/navbar.html). */
 .nav-logo {
-  height: 40px;
+  height: 100px;
   width: auto;
   display: block;
 }
 
 .footer-logo-img {
-  height: 36px;
+  height: 90px;
   width: auto;
   display: block;
 }
