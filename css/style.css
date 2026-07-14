@@ -128,9 +128,9 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid var(--line);
 }
 .navbar-inner {
-  max-width: var(--max);
+  max-width: 1330px;
   margin: 0 auto;
-  padding: 14px 24px;
+  padding: 14px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -316,8 +316,8 @@ h1, h2, h3, h4 {
 
 .about-preview-image {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: 130%;
+    height: 110%;
     min-height: 480px;
     overflow: hidden;
     border-radius: 18px;
@@ -328,7 +328,7 @@ h1, h2, h3, h4 {
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
+    object-position:top center;
     display:block;
     transition:.5s;
 }
@@ -496,6 +496,30 @@ h1, h2, h3, h4 {
 .news-content p { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 12px; }
 
 @media (max-width: 860px) { .news-grid { grid-template-columns: 1fr; } }
+
+.project-image img,
+.news-image img,
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.project-image,
+.news-image {
+    overflow: hidden;
+    border-radius: inherit;
+}
+
+.testimonial-avatar {
+    overflow: hidden;
+}
+
+.testimonial-avatar img {
+    border-radius: 50%;
+}
+
 
 /* =========================================================
    FOOTER
