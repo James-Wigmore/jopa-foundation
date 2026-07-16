@@ -1007,3 +1007,159 @@ html, body { overflow-x: hidden; max-width: 100%; }
    attributes found across multiple pages with reusable classes. */
 .mt-lg { margin-top: 3rem; }
 .mb-sm { margin-bottom: 10px; }
+
+
+/* =====================================================
+   EXECUTIVE TEAM
+===================================================== */
+
+.executive-section{
+    background:var(--cream);
+}
+
+.executive-scroll{
+    overflow-x:auto;
+    overflow-y:hidden;
+    padding-bottom:15px;
+    scrollbar-width:thin;
+}
+
+.executive-grid{
+
+    display:grid;
+
+    grid-auto-flow:column;
+
+    grid-template-rows:repeat(1,1fr);
+
+    grid-auto-columns:calc((100% - 72px)/4);
+
+    gap:24px;
+
+}
+
+.executive-card{
+
+    background:#fff;
+
+    border:1px solid var(--line);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    min-height:360px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    transition:.25s;
+
+}
+
+.executive-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+}
+
+.executive-image{
+
+    width:100%;
+
+    height:170px;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    margin-bottom:16px;
+
+    background:#ececec;
+
+}
+
+.executive-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+}
+
+.executive-name{
+
+    margin-bottom:6px;
+
+    font-size:1.15rem;
+
+}
+
+.executive-role{
+
+    color:var(--clay);
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.executive-description{
+
+    color:var(--ink-soft);
+
+    font-size:.92rem;
+
+    line-height:1.6;
+
+}
+
+/* Desktop */
+
+@media(max-width:1200px){
+
+.executive-grid{
+
+grid-auto-columns:calc((100% - 48px)/3);
+
+}
+
+}
+
+/* Tablet */
+
+@media(max-width:900px){
+
+.executive-grid{
+
+grid-auto-columns:calc((100% - 24px)/2);
+
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:600px){
+
+.executive-grid{
+
+grid-auto-columns:100%;
+
+}
+
+.executive-card{
+
+min-height:auto;
+
+}
+
+}
