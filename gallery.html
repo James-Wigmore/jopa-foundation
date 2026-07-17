@@ -1,235 +1,278 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Browse JOPA Foundation Uganda's photo gallery showcasing our work and community impact across Uganda.">
-  <meta name="keywords" content="Gallery, Photos, Community, JOPA Foundation Uganda">
-  <meta name="author" content="JOPA Foundation Uganda">
-  <meta property="og:title" content="Gallery - JOPA Foundation Uganda">
-  <meta property="og:description" content="View photos of JOPA Foundation Uganda's community projects and impact.">
-  <meta property="og:url" content="https://James-Wigmore.github.io/jopa-foundation/gallery.html">
-  <meta name="theme-color" content="#1B5E20">
-  <link rel="icon" type="image/png" href="./images/favicon.png">
- <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/secondary-pages.css">
-  <title>Gallery - JOPA Foundation Uganda</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Browse JOPA Foundation Uganda's photo gallery showcasing our work and community impact across Uganda." name="description"/>
+<meta content="JOPA Foundation Uganda" name="author"/>
+<meta content="Gallery - JOPA Foundation Uganda" property="og:title"/>
+<meta content="#1B4332" name="theme-color"/>
+<link href="./assets/images/favicon.png" rel="icon"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/pages.css" rel="stylesheet"/>
+<title>Gallery - JOPA Foundation Uganda</title>
 </head>
 <body>
-  <!-- Navigation -->
-  
-  <div id="navbar"></div>
-
-  <!-- Page Hero -->
-  <section class="page-hero">
-    <div class="page-hero-background" style="background-image: url('./images/gallery-hero.jpg');"></div>
-    <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <h1 class="page-title fade-in-up">Photo Gallery</h1>
-      <p class="page-subtitle fade-in-up">Our work and community impact in visual stories</p>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <main>
-    <!-- Gallery Filter -->
-    <section class="section gallery-filter-section">
-      <div class="container">
-        <div class="filter-buttons">
-          <button class="filter-btn active" data-filter="all">All Photos</button>
-          <button class="filter-btn" data-filter="education">Education</button>
-          <button class="filter-btn" data-filter="health">Health</button>
-          <button class="filter-btn" data-filter="agriculture">Agriculture</button>
-          <button class="filter-btn" data-filter="community">Community</button>
-          <button class="filter-btn" data-filter="events">Events</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Masonry Gallery -->
-    <section class="section gallery-section">
-      <div class="container">
-        <div class="masonry-gallery">
-          <!-- Gallery Item 1 -->
-          <div class="gallery-item scroll-reveal" data-category="education">
-            <img src="./images/gallery-1.jpg" alt="Youth receiving digital skills training">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Digital Skills Training</h3>
-                <p>Youth participants learning coding and web development</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 2 -->
-          <div class="gallery-item scroll-reveal" data-category="agriculture">
-            <img src="./images/gallery-2.jpg" alt="Farmers at demonstration plot">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Agricultural Training</h3>
-                <p>Farmers learn sustainable farming practices</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 3 -->
-          <div class="gallery-item scroll-reveal" data-category="health">
-            <img src="./images/gallery-3.jpg" alt="Health screening session">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Community Health Outreach</h3>
-                <p>Free health screening for community members</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 4 -->
-          <div class="gallery-item scroll-reveal" data-category="community">
-            <img src="./images/gallery-4.jpg" alt="Community gathering">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Community Meeting</h3>
-                <p>Community members discuss development priorities</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 5 -->
-          <div class="gallery-item scroll-reveal" data-category="events">
-            <img src="./images/gallery-5.jpg" alt="Launch event">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Program Launch</h3>
-                <p>Launching new education and training initiative</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 6 -->
-          <div class="gallery-item scroll-reveal" data-category="education">
-            <img src="./images/gallery-6.jpg" alt="School project">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>School Infrastructure</h3>
-                <p>Classroom renovation project completion</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 7 -->
-          <div class="gallery-item scroll-reveal" data-category="agriculture">
-            <img src="./images/gallery-7.jpg" alt="Harvest celebration">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Harvest Celebration</h3>
-                <p>Farmers celebrate improved harvest yields</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 8 -->
-          <div class="gallery-item scroll-reveal" data-category="community">
-            <img src="./images/gallery-8.jpg" alt="Environmental project">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Tree Planting Drive</h3>
-                <p>Community members participate in reforestation</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 9 -->
-          <div class="gallery-item scroll-reveal" data-category="events">
-            <img src="./images/gallery-9.jpg" alt="Youth leadership program">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Youth Leadership Summit</h3>
-                <p>Young leaders gather for capacity building</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 10 -->
-          <div class="gallery-item scroll-reveal" data-category="health">
-            <img src="./images/gallery-10.jpg" alt="Health worker training">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Health Worker Training</h3>
-                <p>Community health workers receive certification</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 11 -->
-          <div class="gallery-item scroll-reveal" data-category="education">
-            <img src="./images/gallery-11.jpg" alt="Vocational training">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Vocational Skills Training</h3>
-                <p>Youth learning various trade skills</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-
-          <!-- Gallery Item 12 -->
-          <div class="gallery-item scroll-reveal" data-category="community">
-            <img src="./images/gallery-12.jpg" alt="Award ceremony">
-            <div class="gallery-overlay">
-              <div class="gallery-info">
-                <h3>Recognition Ceremony</h3>
-                <p>Outstanding participants recognized for achievements</p>
-              </div>
-              <button class="gallery-expand" aria-label="View full image"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="section cta-section">
-      <div class="container">
-        <div class="cta-content scroll-reveal">
-          <h2>See Our Impact in Action</h2>
-          <p>Follow us on social media for regular updates and stories from the field.</p>
-        </div>
-        <div class="cta-buttons scroll-reveal">
-          <a href="#" class="btn btn-primary">Follow on Instagram</a>
-          <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Lightbox Modal -->
-  <div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-      <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
-      <button class="lightbox-prev" aria-label="Previous image">&#10094;</button>
-      <img id="lightbox-image" src="" alt="">
-      <button class="lightbox-next" aria-label="Next image">&#10095;</button>
-      <div class="lightbox-caption"></div>
-    </div>
-  </div>
-
-  <!-- Latest News Section -->
+<div id="navbar"></div>
+<section class="page-hero">
+<div class="page-hero-content">
+<span class="page-eyebrow">Gallery</span>
+<h1 class="page-title">Photo Gallery</h1>
+<p class="page-subtitle">Our work and community impact in visual stories.</p>
+</div>
+</section>
+<main>
+<section class="gallery-filter-section">
+<div class="container">
+<div class="filter-buttons" id="galleryFilters">
+<button class="filter-btn active" data-filter="all">All Photos</button>
+<button class="filter-btn" data-filter="education">Education</button>
+<button class="filter-btn" data-filter="health">Health</button>
+<button class="filter-btn" data-filter="agriculture">Agriculture</button>
+<button class="filter-btn" data-filter="community">Community</button>
+<button class="filter-btn" data-filter="events">Events</button>
+</div>
+</div>
 </section>
 
-<div id="footer"></div>
+<section class="section gallery-section">
+    <div class="container">
 
-  <!-- Scripts -->
- <script src="js/script.js"></script>
+        <div class="masonry-gallery scroll-row" id="galleryGrid">
+
+            <!-- Digital Skills -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Youth participants learning coding and web development"
+                data-category="education"
+                data-title="Digital Skills Training">
+
+                <img src="assets/images/photos/image-01.jpg"
+                     alt="Digital Skills Training"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Digital Skills Training</h3>
+                        <p>Youth participants learning coding and web development</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Agriculture -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="The community learning modern agriculture methods"
+                data-category="agriculture"
+                data-title="Agriculture Training">
+
+                <img src="assets/images/photos/image-02.jpg"
+                     alt="Agriculture Training"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Agriculture Training</h3>
+                        <p>The community learning modern agriculture methods</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Community Health -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Community members receive health education and resources"
+                data-category="health"
+                data-title="Community Health Outreach">
+
+                <img src="assets/images/photos/image-03.jpg"
+                     alt="Community Health Outreach"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Community Health Outreach</h3>
+                        <p>Community members receive health education and resources</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Community Meeting -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Community members gather to discuss local issues and initiatives"
+                data-category="community"
+                data-title="Community Meeting">
+
+                <img src="assets/images/photos/image-04.jpg"
+                     alt="Community Meeting"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Community Meeting</h3>
+                        <p>Community members gather to discuss local issues and initiatives</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Program Launch -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Launching new education and training initiatives"
+                data-category="events"
+                data-title="Program Launch">
+
+                <img src="assets/images/photos/image-05.jpg"
+                     alt="Program Launch"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Program Launch</h3>
+                        <p>Launching new education and training initiatives</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- School Infrastructure -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Completion of classroom renovation project"
+                data-category="education"
+                data-title="School Infrastructure Development">
+
+                <img src="assets/images/photos/image-06.jpg"
+                     alt="School Infrastructure Development"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>School Infrastructure Development</h3>
+                        <p>Completion of classroom renovation project</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Youth Leadership -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Young leaders gather for capacity building"
+                data-category="events"
+                data-title="Youth Leadership Summit">
+
+                <img src="assets/images/photos/image-07.jpg"
+                     alt="Youth Leadership Summit"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Youth Leadership Summit</h3>
+                        <p>Young leaders gather for capacity building</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Health Worker Training -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Community health workers receive certification"
+                data-category="health"
+                data-title="Health Worker Training">
+
+                <img src="assets/images/photos/image-08.jpg"
+                     alt="Health Worker Training"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Health Worker Training</h3>
+                        <p>Community health workers receive certification</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+            <!-- Vocational Skills -->
+            <div class="gallery-item scroll-reveal"
+                data-caption="Youth participants learning vocational and practical skills"
+                data-category="education"
+                data-title="Vocational Skills Training">
+
+                <img src="assets/images/photos/image-09.jpg"
+                     alt="Vocational Skills Training"
+                     class="gallery-image">
+
+                <div class="gallery-overlay">
+                    <div class="gallery-info">
+                        <h3>Vocational Skills Training</h3>
+                        <p>Youth participants learning vocational and practical skills.</p>
+                    </div>
+                </div>
+
+                <button class="gallery-expand" aria-label="View full image"></button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<section class="section cta-section">
+<div class="container">
+<div class="cta-content">
+<h2>See Our Impact in Action</h2>
+<p>Follow us on social media for regular updates and stories from the field.</p>
+</div>
+<div class="cta-buttons">
+<a class="btn btn-primary" href="#">Follow on Instagram</a>
+<a class="btn btn-secondary" href="contact.html">Get In Touch</a>
+</div>
+</div>
+</section>
+</main>
+<div class="lightbox" id="lightbox">
+<div class="lightbox-content">
+<button aria-label="Close lightbox" class="lightbox-close">×</button>
+<div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+</div>
+<div id="footer"></div>
 <script src="js/include.js"></script>
+<script src="js/script.js"></script>
+<script>
+document.getElementById('galleryFilters').addEventListener('click', (e) => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('#galleryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const filter = btn.dataset.filter;
+  document.querySelectorAll('#galleryGrid .gallery-item').forEach(item => {
+    item.style.display = (filter === 'all' || item.dataset.category === filter) ? '' : 'none';
+  });
+});
+
+const lightbox = document.getElementById('lightbox');
+const lightboxCaption = document.getElementById('lightboxCaption');
+document.querySelectorAll('.gallery-expand').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.gallery-item');
+    lightboxCaption.innerHTML = `<strong>${item.dataset.title}</strong><br>${item.dataset.caption}`;
+    lightbox.classList.add('open');
+  });
+});
+document.querySelector('.lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
+lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+</script>
 </body>
 </html>

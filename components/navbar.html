@@ -1,49 +1,26 @@
-    <!-- ===========================
-         NAVIGATION BAR
-    ============================ -->
-
-    <header class="navbar">
-
-    <div class="container nav-container">
-
-        <a href="index.html" class="logo">
-
-            <img src="assets/images/logo.png"
-                 alt="JOPA Foundation Uganda Logo"
-                 class="logo-img">
-
-            <div class="logo-text">
-                <span class="logo-title">
-                    JOPA Foundation Uganda
-                </span>
-            </div>
-
-        </a>
-
-        <nav>
-
-            <ul class="nav-menu">
-
-                <li><a href="index.html" class="nav-link">Home</a></li>
-
-                <li><a href="about.html" class="nav-link">About Us</a></li>
-
-                <li><a href="programs.html" class="nav-link">Programs</a></li>
-
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-
-                <li><a href="leadership.html" class="nav-link">Leadership</a></li>
-
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-
-                <li><a href="news.html" class="nav-link">News</a></li>
-
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-
-            </ul>
-
-        </nav>
-
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="nav-brand">
+      <img src="assets/images/jopa.png" alt="JOPA Foundation Uganda logo" class="nav-logo" width="40" height="40"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <span class="mark" style="display:none;">JF</span>
+      JOPA Foundation Uganda
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="leadership.html">Leadership</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="news.html">News</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="contact.html#donate" class="btn btn-primary">Donate</a>
     </div>
-
-</header>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
