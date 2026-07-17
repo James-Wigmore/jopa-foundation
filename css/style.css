@@ -31,7 +31,7 @@
   --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
 
   /* Layout */
-  --max: 1180px;
+  --max: 1330px;
   --radius: 14px;
 }
 
@@ -193,7 +193,7 @@ h1, h2, h3, h4 {
 @media (max-width: 480px) {
   .navbar-inner { padding: 10px 16px; }
   .nav-brand { font-size: 0.92rem; gap: 7px; line-height: 1.15; }
-  .nav-logo { height: 30px; }
+  .nav-logo { height: 3cm; }
 }
 
 /* =========================================================
@@ -951,13 +951,13 @@ h1, h2, h3, h4 {
    Until that file exists, onerror on the <img> falls back to the "JF"
    text mark automatically (see components/navbar.html). */
 .nav-logo {
-  height: 40px;
+  height: 100px;
   width: auto;
   display: block;
 }
 
 .footer-logo-img {
-  height: 36px;
+  height: 100px;
   width: auto;
   display: block;
 }
