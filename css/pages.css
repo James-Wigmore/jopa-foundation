@@ -205,8 +205,10 @@ button.btn-primary { align-self: flex-start; border: none; }
 .director-image {
   aspect-ratio: 3/3.4;
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible; /* visible, not hidden — lets .floating-badge hang over the corner; the
+                         photo is clipped individually below instead */
   background: #eee;
+  position: relative;
 }
 
 .director-image img {
@@ -214,6 +216,7 @@ button.btn-primary { align-self: flex-start; border: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: inherit;
 }
 .director-badge { font-family: var(--font-mono); font-size: 0.75rem; color: var(--clay); text-transform: uppercase; letter-spacing: 0.06em; }
 .director-name { font-size: 1.6rem; margin: 8px 0 2px; }
@@ -382,10 +385,16 @@ columns:1;
   .programs-detailed-grid { grid-template-columns: 1fr; }
 }
 .program-detailed-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px;
   display: flex;
   flex-direction: column;
   height: 100%;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
 }
+.program-detailed-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(22,35,28,0.14); }
 .program-detailed-card.is-hidden { display: none; }
 .program-body { display: flex; flex-direction: column; flex: 1; }
 .program-overview { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; margin-bottom: 14px; }
@@ -492,8 +501,40 @@ table.data-table tfoot td:last-child { text-align: right; font-family: var(--fon
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 28px 30px;
+  position: relative;
+  overflow: hidden; /* clips the full-bleed image below to the card's rounded corners */
 }
 .project-block.hidden-project { display: none; }
+
+/* ---- Project image ----
+   Bleeds edge-to-edge above the text content instead of sitting
+   inset inside the card's own padding. Negative margins pull it out
+   to the card edges; overflow:hidden on .project-block (above) clips
+   its top corners to match the card's border-radius. object-fit:cover
+   guarantees every photo fills the same box regardless of its native
+   dimensions, so five different source images all render at a
+   consistent height instead of each keeping its own aspect ratio. */
+.project-image {
+  aspect-ratio: 16/9;
+  margin: -28px -30px 22px;
+  overflow: hidden;
+  background: linear-gradient(155deg, var(--clay) 0%, var(--forest-deep) 100%);
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.project-block:hover .project-image img { transform: scale(1.04); }
+
+/* Fallback gradient color rotation — shows through if a photo is
+   missing or fails to load (onerror removes the <img> itself) */
+.project-block:nth-child(3n+2) .project-image { background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 100%); }
+.project-block:nth-child(3n+3) .project-image { background: linear-gradient(155deg, var(--forest) 0%, var(--clay-deep) 100%); }
+
 .project-block-header {
   display: flex;
   align-items: center;
@@ -540,5 +581,6 @@ table.data-table tfoot td:last-child { text-align: right; font-family: var(--fon
 
 @media (max-width: 640px) {
   .project-block { padding: 22px 18px; }
+  .project-image { margin: -22px -18px 18px; }
   .project-block-header h3 { min-width: 0; }
 }

@@ -5,6 +5,7 @@ async function includeHTML(elementId, filePath) {
   if (!el) return;
   try {
     const res = await fetch(filePath);
+    if (!res.ok) throw new Error(`${filePath} returned ${res.status}`);
     el.innerHTML = await res.text();
   } catch (err) {
     console.error(`Could not load ${filePath}:`, err);

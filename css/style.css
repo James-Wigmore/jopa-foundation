@@ -329,16 +329,29 @@ h1, h2, h3, h4 {
 .about-preview-text .btn { margin-top: 8px; }
 .about-preview-image {
   border-radius: var(--radius);
-  overflow: hidden;
+  overflow: visible; /* visible, not hidden — lets .floating-badge hang over the corner; the
+                         photo and decorative overlay are clipped individually below instead */
   aspect-ratio: 4/3.2;
   background: linear-gradient(155deg, var(--forest) 0%, var(--forest-deep) 100%);
   position: relative;
   transition: box-shadow 0.3s ease;
 }
 .about-preview-image:hover { box-shadow: 0 20px 44px rgba(22,35,28,0.22); }
+.about-preview-image img {
+  position: relative;
+  z-index: 1; /* explicit stacking context so the real photo sits above the decorative ::after,
+                 which is absolutely positioned and would otherwise render on top regardless of DOM order */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+}
 .about-preview-image::after {
   content: "";
   position: absolute; inset: 0;
+  border-radius: inherit;
   background-image: radial-gradient(circle at 20% 30%, rgba(224,160,48,0.35) 0, transparent 45%),
                      radial-gradient(circle at 80% 75%, rgba(181,72,52,0.35) 0, transparent 45%);
 }
@@ -427,6 +440,13 @@ h1, h2, h3, h4 {
 .project-card:hover .project-image { transform: scale(1.04); }
 .project-card:nth-child(2) .project-image { background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 100%); }
 .project-card:nth-child(3) .project-image { background: linear-gradient(155deg, var(--forest) 0%, var(--clay-deep) 100%); }
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 .project-content { padding: 22px 22px 26px; }
 .project-content h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .project-content p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 14px; }
@@ -469,13 +489,66 @@ h1, h2, h3, h4 {
 .news-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(22,35,28,0.1); }
 .news-image { aspect-ratio: 16/10; background: linear-gradient(155deg, var(--forest) 0%, var(--gold) 140%); opacity: 0.9; position: relative; overflow: hidden; }
 .news-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.news-image .news-category { position: absolute; top: 14px; left: 14px; z-index: 1; }
+.news-image .news-category {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 1;
+  background: var(--paper);
+  color: var(--forest-deep);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(16,40,29,0.18);
+}
 .news-content { padding: 20px 22px 24px; }
 .news-date { font-family: var(--font-mono); font-size: 0.76rem; color: var(--clay); margin-bottom: 10px; }
 .news-content h3 { font-size: 1rem; margin-bottom: 8px; line-height: 1.35; }
 .news-content p { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 12px; }
 
 @media (max-width: 860px) { .news-grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   NEWSLETTER BAND — dark full-width signup band, distinct from
+   the footer's compact .newsletter-signup which lives on every page
+   ========================================================= */
+.newsletter-section {
+  background: var(--forest-deep);
+  color: var(--paper);
+  text-align: center;
+}
+.newsletter-content { max-width: 560px; margin: 0 auto; }
+.newsletter-content h2 { color: var(--paper); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 10px; }
+.newsletter-content p { color: rgba(251,248,241,0.8); margin-bottom: 28px; }
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.newsletter-form input {
+  flex: 1;
+  min-width: 220px;
+  width: auto;
+  padding: 13px 18px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(251,248,241,0.25);
+  background: rgba(251,248,241,0.08);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+}
+.newsletter-form input::placeholder { color: rgba(251,248,241,0.5); }
+.newsletter-form input:focus { outline: none; border-color: var(--gold); }
+.newsletter-form button { white-space: nowrap; border: none; }
+@media (max-width: 560px) {
+  .newsletter-form { flex-direction: column; align-items: stretch; }
+  .newsletter-form input { min-width: 0; }
+}
 
 /* =========================================================
    FOOTER
@@ -683,6 +756,15 @@ h1, h2, h3, h4 {
   width: 42px; height: 42px; border-radius: 50%;
   background: linear-gradient(155deg, var(--forest) 0%, var(--gold) 150%);
   flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+.testimonial-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 .testimonial-name { font-size: 0.92rem; font-weight: 600; color: var(--forest-deep); }
 .testimonial-role { font-size: 0.8rem; color: var(--ink-soft); }
@@ -1008,158 +1090,3 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .mt-lg { margin-top: 3rem; }
 .mb-sm { margin-bottom: 10px; }
 
-
-/* =====================================================
-   EXECUTIVE TEAM
-===================================================== */
-
-.executive-section{
-    background:var(--cream);
-}
-
-.executive-scroll{
-    overflow-x:auto;
-    overflow-y:hidden;
-    padding-bottom:15px;
-    scrollbar-width:thin;
-}
-
-.executive-grid{
-
-    display:grid;
-
-    grid-auto-flow:column;
-
-    grid-template-rows:repeat(1,1fr);
-
-    grid-auto-columns:calc((100% - 72px)/4);
-
-    gap:24px;
-
-}
-
-.executive-card{
-
-    background:#fff;
-
-    border:1px solid var(--line);
-
-    border-radius:18px;
-
-    padding:22px;
-
-    min-height:360px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    transition:.25s;
-
-}
-
-.executive-card:hover{
-
-    transform:translateY(-6px);
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-}
-
-.executive-image{
-
-    width:100%;
-
-    height:170px;
-
-    overflow:hidden;
-
-    border-radius:14px;
-
-    margin-bottom:16px;
-
-    background:#ececec;
-
-}
-
-.executive-image img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-.executive-name{
-
-    margin-bottom:6px;
-
-    font-size:1.15rem;
-
-}
-
-.executive-role{
-
-    color:var(--clay);
-
-    font-weight:600;
-
-    margin-bottom:10px;
-
-}
-
-.executive-description{
-
-    color:var(--ink-soft);
-
-    font-size:.92rem;
-
-    line-height:1.6;
-
-}
-
-/* Desktop */
-
-@media(max-width:1200px){
-
-.executive-grid{
-
-grid-auto-columns:calc((100% - 48px)/3);
-
-}
-
-}
-
-/* Tablet */
-
-@media(max-width:900px){
-
-.executive-grid{
-
-grid-auto-columns:calc((100% - 24px)/2);
-
-}
-
-}
-
-/* Mobile */
-
-@media(max-width:600px){
-
-.executive-grid{
-
-grid-auto-columns:100%;
-
-}
-
-.executive-card{
-
-min-height:auto;
-
-}
-
-}
