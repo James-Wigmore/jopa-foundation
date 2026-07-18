@@ -797,7 +797,7 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(1), .board-grid > .scroll-reveal:nth-child(1),
 .executive-grid > .scroll-reveal:nth-child(1), .approach-grid > .scroll-reveal:nth-child(1),
 .values-grid > .scroll-reveal:nth-child(1), .grid-3 > .scroll-reveal:nth-child(1),
-.stats-grid > .scroll-reveal:nth-child(1),
+.stats-grid > .scroll-reveal:nth-child(1), .impact-grid > .scroll-reveal:nth-child(1),
 .masonry-gallery > .scroll-reveal:nth-child(1) { transition-delay: 0.03s; }
 
 .causes-grid > .scroll-reveal:nth-child(2), .testimonials-grid > .scroll-reveal:nth-child(2),
@@ -805,7 +805,7 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(2), .board-grid > .scroll-reveal:nth-child(2),
 .executive-grid > .scroll-reveal:nth-child(2), .approach-grid > .scroll-reveal:nth-child(2),
 .values-grid > .scroll-reveal:nth-child(2), .grid-3 > .scroll-reveal:nth-child(2),
-.stats-grid > .scroll-reveal:nth-child(2),
+.stats-grid > .scroll-reveal:nth-child(2), .impact-grid > .scroll-reveal:nth-child(2),
 .masonry-gallery > .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
 
 .causes-grid > .scroll-reveal:nth-child(3), .testimonials-grid > .scroll-reveal:nth-child(3),
@@ -813,12 +813,12 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(3), .board-grid > .scroll-reveal:nth-child(3),
 .executive-grid > .scroll-reveal:nth-child(3), .approach-grid > .scroll-reveal:nth-child(3),
 .values-grid > .scroll-reveal:nth-child(3), .grid-3 > .scroll-reveal:nth-child(3),
-.stats-grid > .scroll-reveal:nth-child(3),
+.stats-grid > .scroll-reveal:nth-child(3), .impact-grid > .scroll-reveal:nth-child(3),
 .masonry-gallery > .scroll-reveal:nth-child(3) { transition-delay: 0.17s; }
 
 .causes-grid > .scroll-reveal:nth-child(4), .programs-detailed-grid > .scroll-reveal:nth-child(4), .board-grid > .scroll-reveal:nth-child(4),
 .executive-grid > .scroll-reveal:nth-child(4), .approach-grid > .scroll-reveal:nth-child(4),
-.stats-grid > .scroll-reveal:nth-child(4),
+.stats-grid > .scroll-reveal:nth-child(4), .impact-grid > .scroll-reveal:nth-child(4),
 .masonry-gallery > .scroll-reveal:nth-child(4) { transition-delay: 0.24s; }
 
 .causes-grid > .scroll-reveal:nth-child(5), .programs-detailed-grid > .scroll-reveal:nth-child(5), .board-grid > .scroll-reveal:nth-child(5),
@@ -1045,15 +1045,15 @@ h1, h2, h3, h4 {
    and components/footer.html. Until the real logo file loads, onerror
    on the <img> falls back to the "JF" text mark automatically. */
 .nav-logo {
-  height: 100px;
-  width: 100px;
+  height: 40px;
+  width: 40px;
   object-fit: contain;
   display: block;
 }
 
 .footer-logo-img {
-  height: 100px;
-  width: 100px;
+  height: 36px;
+  width: 36px;
   object-fit: contain;
   display: block;
 }

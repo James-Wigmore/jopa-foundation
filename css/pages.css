@@ -62,10 +62,16 @@
 /* ---- Generic two-column content ---- */
 .two-column-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
 .two-column-content p { color: var(--ink-soft); margin-bottom: 16px; }
-.image-placeholder { border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/3.4; background: linear-gradient(155deg, var(--forest) 0%, var(--clay-deep) 100%); position: relative; }
-.image-placeholder::after { content: "Replace with real photo"; position:absolute; inset:0; display:flex; align-items:flex-end; padding:14px; color:var(--paper); font-family: var(--font-mono); font-size:0.72rem; opacity:0.7; }
-.image-placeholder img { display: none; }
 @media (max-width: 860px) { .two-column-content { grid-template-columns: 1fr; } }
+
+/* NOTE: .image-placeholder and .section-image (the real-photo container
+   used inside .two-column-content above) live in style.css — that is
+   the single source of truth. An older "coming soon" variant of
+   .image-placeholder used to be defined here too, with img{display:none}
+   and a "Replace with real photo" overlay, and because this file loads
+   after style.css it was silently winning and hiding every real photo
+   on the About page. It has been deleted rather than reconciled, so
+   there is exactly one definition of this component going forward. */
 
 /* ---- Mission / Vision / Values ---- */
 .mvv-section { background: var(--paper); }
@@ -73,7 +79,9 @@
 .mvv-card, .values-card {
   background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 32px;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
+.mvv-card:hover, .values-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); }
 .mvv-icon { font-size: 1.6rem; margin-bottom: 12px; }
 .mvv-card h3, .values-card h3 { margin-bottom: 10px; font-size: 1.15rem; }
 .mvv-card p { color: var(--ink-soft); }
@@ -84,7 +92,11 @@
 
 /* ---- Numbered approach cards ---- */
 .approach-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.approach-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
+.approach-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.approach-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); border-color: transparent; }
 .approach-number { font-family: var(--font-mono); color: var(--clay); font-size: 1.6rem; font-weight: 600; margin-bottom: 10px; }
 .approach-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
 .approach-card p { color: var(--ink-soft); font-size: 0.92rem; }
@@ -95,7 +107,8 @@
 .stats-section { background: var(--forest); color: var(--paper); }
 .stats-section .section-title { color: var(--paper); }
 .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
-.stat-box { border-left: 3px solid var(--gold); padding-left: 18px; }
+.stat-box { border-left: 3px solid var(--gold); padding-left: 18px; transition: border-color 0.2s ease, transform 0.2s ease; }
+.stat-box:hover { border-color: var(--gold-light); transform: translateY(-3px); }
 .stat-number { font-family: var(--font-mono); font-size: clamp(2rem, 4vw, 2.6rem); font-weight: 600; color: var(--gold-light); }
 .stat-label { color: rgba(251,248,241,0.75); font-size: 0.9rem; margin-top: 6px; }
 @media (max-width: 860px) { .stats-grid { grid-template-columns: 1fr 1fr; row-gap: 30px; } }
@@ -121,7 +134,11 @@
 
 /* ---- Contact page ---- */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; }
+.card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); border-color: transparent; }
 .card h3 { font-size: 1rem; margin-bottom: 10px; }
 .card p { color: var(--ink-soft); font-size: 0.94rem; }
 .card a:hover { color: var(--clay); }
@@ -133,10 +150,12 @@
   font-family: var(--font-body); font-weight: 600; font-size: 0.92rem;
   padding: 10px 20px; border-radius: 999px; border: 1.5px solid var(--line);
   background: var(--cream); color: var(--ink-soft); cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
+.form-tab:hover { border-color: var(--clay); color: var(--clay); transform: translateY(-1px); }
 .form-tab.active { background: var(--clay); border-color: var(--clay); color: var(--paper); }
 .form-panel { display: none; }
-.form-panel.active { display: block; }
+.form-panel.active { display: block; animation: heroRise 0.4s ease both; }
 
 form.contact-form, form.stack-form {
   display: flex; flex-direction: column; gap: 16px; max-width: 720px;
@@ -146,8 +165,9 @@ input, select, textarea {
   font-family: var(--font-body); font-size: 0.95rem;
   padding: 13px 16px; border-radius: 10px; border: 1.5px solid var(--line);
   background: var(--paper); color: var(--ink); width: 100%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
-input:focus, select:focus, textarea:focus { outline: none; border-color: var(--clay); }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--clay); box-shadow: 0 0 0 3px rgba(181,72,52,0.12); }
 textarea { resize: vertical; }
 .form-note { font-size: 0.82rem; color: var(--ink-soft); }
 button.btn-primary { align-self: flex-start; border: none; }
@@ -157,13 +177,17 @@ button.btn-primary { align-self: flex-start; border: none; }
   padding: 11px 20px; border-radius: 999px; border: 1.5px solid var(--line);
   background: var(--paper); font-family: var(--font-mono); font-weight: 600; font-size: 0.92rem;
   cursor: pointer; color: var(--forest-deep);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 .amount-chip.selected, .amount-chip:hover { border-color: var(--clay); color: var(--clay); }
+.amount-chip.selected { transform: scale(1.04); background: rgba(181,72,52,0.06); }
 .give-methods { display: flex; gap: 14px; flex-wrap: wrap; }
 .give-method {
   flex: 1; min-width: 180px; border: 1.5px solid var(--line); border-radius: var(--radius);
   padding: 16px; cursor: pointer; background: var(--paper);
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
 }
+.give-method:hover { transform: translateY(-2px); }
 .give-method.selected { border-color: var(--forest); background: rgba(27,67,50,0.06); }
 .give-method h4 { font-size: 0.92rem; margin-bottom: 4px; }
 .give-method p { font-size: 0.82rem; color: var(--ink-soft); }
@@ -177,12 +201,14 @@ button.btn-primary { align-self: flex-start; border: none; }
   color: var(--forest-deep);
   font-size: 0.94rem;
 }
-.form-success.visible { display: block; }
+.form-success.visible { display: block; animation: heroRise 0.4s ease both; }
 
 .map-box { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
 
 .faq { max-width: 780px; display: flex; flex-direction: column; gap: 12px; }
-.faq-item { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); overflow: hidden; }
+.faq-item { border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); overflow: hidden; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+.faq-item:hover { border-color: var(--clay); }
+.faq-item.active { box-shadow: var(--shadow-sm); }
 .faq-question {
   display: flex; justify-content: space-between; align-items: center;
   padding: 18px 22px; cursor: pointer; font-weight: 600; font-size: 0.96rem;
@@ -197,7 +223,9 @@ button.btn-primary { align-self: flex-start; border: none; }
   background: #25D366; color: white; width: 54px; height: 54px;
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
   font-size: 22px; text-decoration: none; box-shadow: 0 8px 20px rgba(0,0,0,0.25); z-index: 999;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
+.whatsapp-float:hover { transform: translateY(-3px) scale(1.06); box-shadow: 0 12px 28px rgba(0,0,0,0.32); }
 
 /* ---- Leadership ---- */
 .leadership-intro-section { background: var(--paper); }
@@ -217,7 +245,9 @@ button.btn-primary { align-self: flex-start; border: none; }
   height: 100%;
   object-fit: cover;
   border-radius: inherit;
+  transition: transform 0.5s ease;
 }
+.director-card:hover .director-image img { transform: scale(1.04); }
 .director-badge { font-family: var(--font-mono); font-size: 0.75rem; color: var(--clay); text-transform: uppercase; letter-spacing: 0.06em; }
 .director-name { font-size: 1.6rem; margin: 8px 0 2px; }
 .director-position { color: var(--ink-soft); margin-bottom: 14px; }
@@ -233,12 +263,13 @@ button.btn-primary { align-self: flex-start; border: none; }
 .executive-card, .board-card {
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 22px; text-align: left;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
+.executive-card:hover, .board-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); }
 .executive-image, .board-card img {
   width: 100%; aspect-ratio: 1/1.05; border-radius: 10px; margin-bottom: 14px;
   background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 130%);
   object-fit: cover;
-  display: block;
 }
 .executive-image {
   width: 100%;
@@ -249,12 +280,16 @@ button.btn-primary { align-self: flex-start; border: none; }
   background: #eee;
 }
 
-.executive-image img {
+.executive-image img,
+.board-card img {
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
+.executive-card:hover .executive-image img,
+.board-card:hover img { transform: scale(1.06); }
 .executive-name, .board-card h3 { font-size: 1rem; margin-bottom: 3px; }
 .executive-role, .board-card span { color: var(--clay); font-size: 0.84rem; font-weight: 600; }
 .executive-description, .board-card p { color: var(--ink-soft); font-size: 0.86rem; margin-top: 8px; }
@@ -264,7 +299,11 @@ button.btn-primary { align-self: flex-start; border: none; }
 
 .values-section { background: var(--cream); }
 .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-.value-card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; text-align: center; }
+.value-card {
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 26px; text-align: center;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
+}
+.value-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); }
 .value-icon { font-size: 1.6rem; margin-bottom: 10px; }
 .value-card h3 { font-size: 1rem; margin-bottom: 8px; }
 .value-card p { color: var(--ink-soft); font-size: 0.9rem; }
@@ -293,7 +332,7 @@ button.btn-primary { align-self: flex-start; border: none; }
     cursor:pointer;
     background:#fff;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
-    transition:.35s;
+    transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
 }
 
 .gallery-item:hover{
@@ -306,6 +345,15 @@ button.btn-primary { align-self: flex-start; border: none; }
     width:100%;
     height:auto;
 }
+
+/* Size-variant modifiers — previously present on every gallery item
+   in the markup but never given any CSS effect, so the masonry's
+   rhythm was purely accidental (whatever height each source photo
+   happened to be). These give it real, designed variety. */
+.gallery-item.tall .gallery-image { aspect-ratio: 3 / 4.3; object-fit: cover; }
+.gallery-item.wide .gallery-image { aspect-ratio: 16 / 9; object-fit: cover; }
+.gallery-item.square .gallery-image { aspect-ratio: 1 / 1; object-fit: cover; }
+.gallery-item.large .gallery-image { aspect-ratio: 4 / 5; object-fit: cover; }
 
 .gallery-overlay{
     position:absolute;
@@ -342,6 +390,70 @@ button.btn-primary { align-self: flex-start; border: none; }
     border:none;
     background:none;
     cursor:pointer;
+}
+
+/* ---- Gallery lightbox ----
+   Previously had zero CSS anywhere: the JS toggled an "open" class
+   with nothing listening for it, so the modal never appeared — it
+   just sat in normal document flow. This is the full implementation.
+   Also note: gallery.html's markup didn't originally include an <img>
+   inside the lightbox at all, so even with this CSS it would only ever
+   have shown the caption text again — that's fixed in gallery.html. */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16,40,29,0.92);
+  padding: 32px 20px;
+}
+.lightbox.open { display: flex; }
+.lightbox-content {
+  position: relative;
+  max-width: 860px;
+  width: 100%;
+  max-height: 88vh;
+  background: var(--paper);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow-y: auto;
+  animation: heroRise 0.25s ease both;
+}
+.lightbox-image {
+  display: block;
+  width: 100%;
+  max-height: 68vh;
+  object-fit: contain;
+  border-radius: 10px;
+  background: var(--cream);
+}
+.lightbox-caption {
+  padding: 14px 4px 4px;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+.lightbox-caption strong { color: var(--forest-deep); font-family: var(--font-display); font-size: 1.05rem; }
+.lightbox-close {
+  position: absolute;
+  top: -14px; right: -14px;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 3px solid var(--paper);
+  background: var(--forest-deep);
+  color: var(--paper);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.lightbox-close:hover { background: var(--clay); transform: scale(1.08); }
+@media (max-width: 560px) {
+  .lightbox-content { padding: 12px; }
+  .lightbox-close { top: -12px; right: -4px; }
 }
 
 /* Tablets */
@@ -392,9 +504,9 @@ columns:1;
   display: flex;
   flex-direction: column;
   height: 100%;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
-.program-detailed-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(22,35,28,0.14); }
+.program-detailed-card:hover { transform: translateY(var(--lift-md)); box-shadow: var(--shadow-md); }
 .program-detailed-card.is-hidden { display: none; }
 .program-body { display: flex; flex-direction: column; flex: 1; }
 .program-overview { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.55; margin-bottom: 14px; }
@@ -489,6 +601,37 @@ table.data-table tfoot td {
 table.data-table tfoot td:last-child { text-align: right; font-family: var(--font-mono); }
 .table-note { font-size: 0.8rem; color: var(--ink-soft); margin-top: 10px; }
 
+/* ---- Wide-table enhancements (added by script.js) ----
+   .table-scroll-wrapper is the positioned ancestor the injected
+   scroll-arrow buttons anchor to — without position:relative here,
+   those buttons position against whatever ancestor is positioned
+   further up the page, landing in the wrong place entirely (the
+   same class of bug the About page's floating badge had). */
+.table-scroll-wrapper { position: relative; }
+
+/* Collapsed state: only the first 3 body rows show, with a soft
+   fade at the bottom hinting there's more. table-expanded removes
+   both once "View All" is clicked. */
+.table-responsive.table-row-limit { position: relative; }
+.table-responsive.table-row-limit tbody tr:nth-child(n+4) { display: none; }
+.table-responsive.table-row-limit::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(251,248,241,0) 0%, var(--paper) 100%);
+  pointer-events: none;
+}
+.table-responsive.table-row-limit.table-expanded tbody tr { display: table-row; }
+.table-responsive.table-row-limit.table-expanded::after { display: none; }
+
+.table-view-all-btn {
+  display: flex;
+  margin: 4px auto 36px;
+  padding: 10px 22px;
+  font-size: 0.88rem;
+}
+
 /* =========================================================
    PROJECTS PAGE v2 — full-width stacked project blocks
    (tables need room to breathe; a narrow card column is exactly
@@ -503,7 +646,9 @@ table.data-table tfoot td:last-child { text-align: right; font-family: var(--fon
   padding: 28px 30px;
   position: relative;
   overflow: hidden; /* clips the full-bleed image below to the card's rounded corners */
+  transition: box-shadow 0.25s ease;
 }
+.project-block:hover { box-shadow: var(--shadow-sm); }
 .project-block.hidden-project { display: none; }
 
 /* ---- Project image ----
