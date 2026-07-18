@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -245,6 +244,7 @@
 <div class="lightbox" id="lightbox">
 <div class="lightbox-content">
 <button aria-label="Close lightbox" class="lightbox-close">×</button>
+<img class="lightbox-image" id="lightboxImage" src="" alt=""/>
 <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 </div>
@@ -265,15 +265,20 @@ document.getElementById('galleryFilters').addEventListener('click', (e) => {
 
 const lightbox = document.getElementById('lightbox');
 const lightboxCaption = document.getElementById('lightboxCaption');
+const lightboxImage = document.getElementById('lightboxImage');
 document.querySelectorAll('.gallery-expand').forEach(btn => {
   btn.addEventListener('click', () => {
     const item = btn.closest('.gallery-item');
+    const sourceImg = item.querySelector('.gallery-image');
+    lightboxImage.src = sourceImg.src;
+    lightboxImage.alt = sourceImg.alt;
     lightboxCaption.innerHTML = `<strong>${item.dataset.title}</strong><br>${item.dataset.caption}`;
     lightbox.classList.add('open');
   });
 });
 document.querySelector('.lightbox-close').addEventListener('click', () => lightbox.classList.remove('open'));
 lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
 </script>
 </body>
 </html>

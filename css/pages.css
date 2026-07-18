@@ -238,6 +238,7 @@ button.btn-primary { align-self: flex-start; border: none; }
   width: 100%; aspect-ratio: 1/1.05; border-radius: 10px; margin-bottom: 14px;
   background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 130%);
   object-fit: cover;
+  display: block;
 }
 .executive-image {
   width: 100%;
@@ -248,8 +249,7 @@ button.btn-primary { align-self: flex-start; border: none; }
   background: #eee;
 }
 
-.executive-image img,
-.board-card img {
+.executive-image img {
   width: 100%;
   height: 100%;
   display: block;
