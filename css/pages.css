@@ -40,6 +40,43 @@
   z-index: 0;
 }
 .page-hero-content { position: relative; z-index: 1; max-width: var(--max); margin: 0 auto; }
+
+/* ---- Photo-overlay hero variant ----
+   Opt-in with .has-photo + a --hero-photo custom property (set inline
+   per page, or per-page classes below). Sits on top of the existing
+   .page-hero radial-gradient blobs via background-blend-mode, so the
+   same brand-color glow still shows through the photo. A dark
+   bottom-weighted gradient keeps the eyebrow/title/subtitle legible
+   over any photo without needing per-photo tuning. */
+.page-hero.has-photo {
+  background-image:
+    linear-gradient(180deg, rgba(16,40,29,0.55) 0%, rgba(16,40,29,0.72) 55%, rgba(16,40,29,0.88) 100%),
+    radial-gradient(circle at 12% 20%, rgba(224,160,48,0.18) 0, transparent 40%),
+    radial-gradient(circle at 88% 80%, rgba(181,72,52,0.2) 0, transparent 40%),
+    var(--hero-photo);
+  background-size: cover, auto, auto, cover;
+  background-position: center, center, center, center;
+  background-repeat: no-repeat;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.page-hero.has-photo::before,
+.page-hero.has-photo::after { display: none; } /* the blob pseudo-elements are redundant once a photo is behind the gradient */
+.page-hero.has-photo .page-subtitle { color: rgba(251,248,241,0.88); }
+
+/* Per-page photo assignments — swap the url() to change a page's hero photo */
+.about-hero-photo   { --hero-photo: url('../assets/images/photos/about.png'); }
+.programs-hero-photo { --hero-photo: url('../assets/images/photos/work.png'); }
+.projects-hero-photo { --hero-photo: url('../assets/images/photos/bee.png'); }
+.leadership-hero-photo { --hero-photo: url('../assets/images/photos/health.jpg'); }
+.gallery-hero-photo  { --hero-photo: url('../assets/images/photos/sports.jpg'); }
+.news-hero-photo     { --hero-photo: url('../assets/images/photos/hands.png'); }
+.contact-hero-photo  { --hero-photo: url('../assets/images/photos/garden.jpg'); }
+
+@media (max-width: 480px) {
+  .page-hero.has-photo { min-height: 340px; }
+}
 .page-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.78rem;

@@ -281,6 +281,38 @@ h1, h2, h3, h4 {
 }
 
 /* =========================================================
+   HERO — photo-overlay variant (comparison alternative to the
+   map hero above). Opt-in via .hero.has-photo on the same
+   <section class="hero">; swaps the single-column map layout
+   for a full-bleed photo with the same eyebrow/title/description/
+   buttons treatment, so copy and buttons stay identical between
+   both versions for a fair side-by-side comparison.
+   ========================================================= */
+.hero.has-photo {
+  background-image:
+    linear-gradient(180deg, rgba(16,40,29,0.35) 0%, rgba(16,40,29,0.55) 55%, rgba(16,40,29,0.92) 100%),
+    url('../assets/images/photos/about.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 640px;
+  display: flex;
+  align-items: flex-end;
+}
+.hero.has-photo .hero-grid {
+  grid-template-columns: 1fr;
+  padding-bottom: 64px;
+}
+.hero.has-photo .hero-map { display: none; }
+.hero.has-photo .hero-description { color: rgba(251,248,241,0.9); }
+@media (max-width: 860px) {
+  .hero.has-photo { min-height: 520px; }
+}
+@media (max-width: 480px) {
+  .hero.has-photo { min-height: 440px; }
+}
+
+/* =========================================================
    SECTION SCAFFOLDING
    ========================================================= */
 .section { padding: 90px 0; }
