@@ -1045,15 +1045,15 @@ h1, h2, h3, h4 {
    and components/footer.html. Until the real logo file loads, onerror
    on the <img> falls back to the "JF" text mark automatically. */
 .nav-logo {
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 110px;
   object-fit: contain;
   display: block;
 }
 
 .footer-logo-img {
-  height: 36px;
-  width: 36px;
+  height: 80px;
+  width: 100px;
   object-fit: contain;
   display: block;
 }
