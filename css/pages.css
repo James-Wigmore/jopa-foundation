@@ -266,22 +266,17 @@ button.btn-primary { align-self: flex-start; border: none; }
   transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
 .executive-card:hover, .board-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); }
-.executive-image, .board-card img {
-  width: 100%; aspect-ratio: 1/1.05; border-radius: 10px; margin-bottom: 14px;
-  background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 130%);
-  object-fit: cover;
-}
-.executive-image {
+.executive-image, .board-image {
   width: 100%;
   aspect-ratio: 1/1.05;
   border-radius: 10px;
   margin-bottom: 14px;
   overflow: hidden;
-  background: #eee;
+  background: linear-gradient(155deg, var(--gold) 0%, var(--forest) 130%);
 }
 
 .executive-image img,
-.board-card img {
+.board-image img {
   width: 100%;
   height: 100%;
   display: block;
@@ -289,7 +284,7 @@ button.btn-primary { align-self: flex-start; border: none; }
   transition: transform 0.5s ease;
 }
 .executive-card:hover .executive-image img,
-.board-card:hover img { transform: scale(1.06); }
+.board-card:hover .board-image img { transform: scale(1.06); }
 .executive-name, .board-card h3 { font-size: 1rem; margin-bottom: 3px; }
 .executive-role, .board-card span { color: var(--clay); font-size: 0.84rem; font-weight: 600; }
 .executive-description, .board-card p { color: var(--ink-soft); font-size: 0.86rem; margin-top: 8px; }
@@ -346,14 +341,12 @@ button.btn-primary { align-self: flex-start; border: none; }
     height:auto;
 }
 
-/* Size-variant modifiers — previously present on every gallery item
-   in the markup but never given any CSS effect, so the masonry's
-   rhythm was purely accidental (whatever height each source photo
-   happened to be). These give it real, designed variety. */
-.gallery-item.tall .gallery-image { aspect-ratio: 3 / 4.3; object-fit: cover; }
-.gallery-item.wide .gallery-image { aspect-ratio: 16 / 9; object-fit: cover; }
-.gallery-item.square .gallery-image { aspect-ratio: 1 / 1; object-fit: cover; }
-.gallery-item.large .gallery-image { aspect-ratio: 4 / 5; object-fit: cover; }
+/* Size-variant modifiers (large/tall/wide/square) previously forced
+   each photo into a fixed aspect-ratio box via object-fit: cover for
+   visual rhythm — but that crops whatever doesn't fit the forced
+   shape, cutting off real content in real photos. Removed: every
+   photo now displays at its own natural aspect ratio via the
+   height: auto baseline above, so nothing gets cropped. */
 
 .gallery-overlay{
     position:absolute;

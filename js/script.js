@@ -145,11 +145,16 @@ document.querySelectorAll('.district-dot').forEach((dot, i) => {
 // Rows that already link out to a dedicated full-list page are marked
 // data-has-viewall="true" and are skipped entirely.
 document.querySelectorAll('.scroll-row').forEach(row => {
-  if (row.dataset.hasViewall === 'true') return;
-
+  const hasManualViewAll = row.dataset.hasViewall === 'true';
   const overflowing = row.scrollWidth > row.clientWidth + 4;
   const forceViewAll = row.dataset.forceViewall === 'true';
-  if (!overflowing && !forceViewAll) return;
+
+  // Nothing to do at all: doesn't overflow, isn't forced, and has no
+  // manual view-all link elsewhere on the page either.
+  if (!overflowing && !forceViewAll && !hasManualViewAll) return;
+  // Has a manual view-all link but doesn't currently overflow — no
+  // arrows needed, and the manual link already covers "see more".
+  if (!overflowing && hasManualViewAll) return;
 
   const wrapper = document.createElement('div');
   wrapper.className = 'scroll-row-wrapper';
@@ -186,6 +191,12 @@ document.querySelectorAll('.scroll-row').forEach(row => {
     row.addEventListener('scroll', updateArrows);
     window.addEventListener('resize', updateArrows);
   }
+
+  // Rows that already have a manual "view all" link elsewhere on the
+  // page (like the homepage's "See All 8 Programs" button) get scroll
+  // arrows above, but skip the auto-generated View All button so
+  // there's never two competing "see more" controls on one row.
+  if (hasManualViewAll) return;
 
   const count = row.children.length;
   const viewAllBtn = document.createElement('button');
@@ -272,3 +283,44 @@ document.querySelectorAll('table.data-table').forEach(table => {
     });
   }
 });
+
+// =========================================================
+// CUSTOM CURSOR — soft trailing dot, desktop/mouse only.
+// Skipped on touch devices (pointer: fine media check) and when
+// the person prefers reduced motion, since a trailing effect is
+// exactly the kind of motion that setting exists to suppress.
+// Sits alongside the native cursor rather than replacing it.
+// =========================================================
+(function () {
+  var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+  if (prefersReducedMotion || !hasFinePointer) return;
+
+  document.documentElement.classList.add('custom-cursor-active');
+
+  var dot = document.createElement('div');
+  dot.className = 'custom-cursor-dot';
+  document.body.appendChild(dot);
+
+  var hasMoved = false;
+
+  document.addEventListener('mousemove', function (e) {
+    dot.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px) translate(-50%, -50%)';
+    if (!hasMoved) {
+      hasMoved = true;
+      dot.classList.add('is-active');
+    }
+  });
+
+  document.addEventListener('mouseleave', function () { dot.classList.remove('is-active'); });
+  document.addEventListener('mouseenter', function () { if (hasMoved) dot.classList.add('is-active'); });
+
+  // Grow and warm up in color over interactive elements
+  var hoverTargets = 'a, button, .btn, input, select, textarea, .gallery-item, .filter-btn, [role="button"]';
+  document.addEventListener('mouseover', function (e) {
+    if (e.target.closest(hoverTargets)) dot.classList.add('is-hovering');
+  });
+  document.addEventListener('mouseout', function (e) {
+    if (e.target.closest(hoverTargets)) dot.classList.remove('is-hovering');
+  });
+})();

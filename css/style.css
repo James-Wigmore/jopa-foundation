@@ -33,6 +33,15 @@
   /* Layout */
   --max: 1330px;
   --radius: 14px;
+
+  /* Shared motion + elevation tokens — used across every card/hover
+     state site-wide so lift height, timing, and shadow depth stay
+     consistent instead of drifting per-component. */
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+  --lift-sm: -4px;
+  --lift-md: -6px;
+  --shadow-sm: 0 10px 24px rgba(22,35,28,0.10);
+  --shadow-md: 0 18px 36px rgba(22,35,28,0.14);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -95,7 +104,7 @@ h1, h2, h3, h4 {
   font-size: 0.95rem;
   border: 2px solid transparent;
   cursor: pointer;
-  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, background 0.25s ease, color 0.2s ease;
+  transition: transform 0.22s var(--ease-spring), box-shadow 0.25s ease, background 0.25s ease, color 0.2s ease;
 }
 .btn:hover { transform: translateY(-2px); }
 .btn:active { transform: translateY(0); }
@@ -115,7 +124,7 @@ h1, h2, h3, h4 {
 .btn-outline-light { background: transparent; color: var(--paper); border-color: rgba(251,248,241,0.6); }
 .btn-outline-light:hover { background: var(--paper); color: var(--forest-deep); }
 
-.btn-text { color: var(--clay); font-weight: 600; padding: 0; border-radius: 0; }
+.btn-text { color: var(--clay); font-weight: 600; padding: 0; border-radius: 0; transition: color 0.2s ease, transform 0.2s ease; }
 .btn-text:hover { color: var(--clay-deep); transform: translateX(3px); }
 
 /* =========================================================
@@ -179,7 +188,7 @@ h1, h2, h3, h4 {
   width: 44px; height: 44px;
   align-items: center; justify-content: center;
 }
-.nav-toggle span { width: 24px; height: 2px; background: var(--forest-deep); }
+.nav-toggle span { width: 24px; height: 2px; background: var(--forest-deep); transition: transform 0.2s ease, opacity 0.2s ease; }
 
 @media (max-width: 860px) {
   .nav-links { position: fixed; top: 66px; left: 0; right: 0; background: var(--cream);
@@ -193,7 +202,7 @@ h1, h2, h3, h4 {
 @media (max-width: 480px) {
   .navbar-inner { padding: 10px 16px; }
   .nav-brand { font-size: 0.92rem; gap: 7px; line-height: 1.15; }
-  .nav-logo { height: 3cm; }
+  .nav-logo { height: 40px; }
 }
 
 /* =========================================================
@@ -300,7 +309,7 @@ h1, h2, h3, h4 {
 .scroll-reveal {
   opacity: 0;
   transform: translateY(22px) scale(0.985);
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring);
 }
 .scroll-reveal.is-visible { opacity: 1; transform: translateY(0) scale(1); }
 
@@ -360,7 +369,7 @@ h1, h2, h3, h4 {
     position: relative;
     overflow: hidden;
     border-radius: 18px;
-    min-height: 450px;
+    aspect-ratio: 4 / 3.4;
     box-shadow: 0 20px 50px rgba(0,0,0,.15);
 }
 
@@ -428,9 +437,9 @@ h1, h2, h3, h4 {
   overflow: hidden;
   background: var(--cream);
   border: 1px solid var(--line);
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
-.project-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(22,35,28,0.14); }
+.project-card:hover { transform: translateY(var(--lift-md)); box-shadow: var(--shadow-md); }
 .project-image {
   aspect-ratio: 16/11;
   position: relative;
@@ -484,9 +493,9 @@ h1, h2, h3, h4 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
-.news-card:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(22,35,28,0.1); }
+.news-card:hover { transform: translateY(var(--lift-md)); box-shadow: 0 18px 36px rgba(22,35,28,0.1); }
 .news-image { aspect-ratio: 16/10; background: linear-gradient(155deg, var(--forest) 0%, var(--gold) 140%); opacity: 0.9; position: relative; overflow: hidden; }
 .news-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .news-image .news-category {
@@ -701,9 +710,9 @@ h1, h2, h3, h4 {
   padding: 28px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.2s ease;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, border-color 0.2s ease;
 }
-.cause-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(22,35,28,0.14); border-color: transparent; }
+.cause-card:hover { transform: translateY(var(--lift-md)); box-shadow: var(--shadow-md); border-color: transparent; }
 .cause-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
 .cause-icon {
   width: 50px; height: 50px; border-radius: 14px;
@@ -746,9 +755,9 @@ h1, h2, h3, h4 {
 .testimonial-card {
   background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
   padding: 30px; position: relative;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
 }
-.testimonial-card:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(22,35,28,0.1); }
+.testimonial-card:hover { transform: translateY(var(--lift-sm)); box-shadow: 0 16px 32px rgba(22,35,28,0.1); }
 .testimonial-quote-mark { font-family: var(--font-display); font-size: 2.6rem; color: var(--gold); line-height: 1; margin-bottom: 6px; display: block; }
 .testimonial-text { color: var(--ink-soft); font-size: 0.95rem; margin-bottom: 20px; }
 .testimonial-person { display: flex; align-items: center; gap: 12px; }
@@ -788,6 +797,7 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(1), .board-grid > .scroll-reveal:nth-child(1),
 .executive-grid > .scroll-reveal:nth-child(1), .approach-grid > .scroll-reveal:nth-child(1),
 .values-grid > .scroll-reveal:nth-child(1), .grid-3 > .scroll-reveal:nth-child(1),
+.stats-grid > .scroll-reveal:nth-child(1), .impact-grid > .scroll-reveal:nth-child(1),
 .masonry-gallery > .scroll-reveal:nth-child(1) { transition-delay: 0.03s; }
 
 .causes-grid > .scroll-reveal:nth-child(2), .testimonials-grid > .scroll-reveal:nth-child(2),
@@ -795,6 +805,7 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(2), .board-grid > .scroll-reveal:nth-child(2),
 .executive-grid > .scroll-reveal:nth-child(2), .approach-grid > .scroll-reveal:nth-child(2),
 .values-grid > .scroll-reveal:nth-child(2), .grid-3 > .scroll-reveal:nth-child(2),
+.stats-grid > .scroll-reveal:nth-child(2), .impact-grid > .scroll-reveal:nth-child(2),
 .masonry-gallery > .scroll-reveal:nth-child(2) { transition-delay: 0.1s; }
 
 .causes-grid > .scroll-reveal:nth-child(3), .testimonials-grid > .scroll-reveal:nth-child(3),
@@ -802,10 +813,12 @@ h1, h2, h3, h4 {
 .programs-detailed-grid > .scroll-reveal:nth-child(3), .board-grid > .scroll-reveal:nth-child(3),
 .executive-grid > .scroll-reveal:nth-child(3), .approach-grid > .scroll-reveal:nth-child(3),
 .values-grid > .scroll-reveal:nth-child(3), .grid-3 > .scroll-reveal:nth-child(3),
+.stats-grid > .scroll-reveal:nth-child(3), .impact-grid > .scroll-reveal:nth-child(3),
 .masonry-gallery > .scroll-reveal:nth-child(3) { transition-delay: 0.17s; }
 
 .causes-grid > .scroll-reveal:nth-child(4), .programs-detailed-grid > .scroll-reveal:nth-child(4), .board-grid > .scroll-reveal:nth-child(4),
 .executive-grid > .scroll-reveal:nth-child(4), .approach-grid > .scroll-reveal:nth-child(4),
+.stats-grid > .scroll-reveal:nth-child(4), .impact-grid > .scroll-reveal:nth-child(4),
 .masonry-gallery > .scroll-reveal:nth-child(4) { transition-delay: 0.24s; }
 
 .causes-grid > .scroll-reveal:nth-child(5), .programs-detailed-grid > .scroll-reveal:nth-child(5), .board-grid > .scroll-reveal:nth-child(5),
@@ -894,7 +907,7 @@ h1, h2, h3, h4 {
 
 .causes-grid.scroll-row > .cause-card { flex-basis: 320px; }
 .approach-grid.scroll-row > .approach-card { flex-basis: 260px; }
-.board-grid.scroll-row > .board-card { flex-basis: 300px; }
+.board-grid.scroll-row > .board-card { flex-basis: 220px; }
 .executive-grid.scroll-row > .executive-card { flex-basis: 220px; }
 .masonry-gallery.scroll-row { columns: initial; }
 .masonry-gallery.scroll-row > .gallery-item { flex-basis: 240px; margin-bottom: 0; }
@@ -1027,20 +1040,21 @@ h1, h2, h3, h4 {
     color: rgba(255,255,255,.9);
 }
 
-
-
-/* Logo — ready for a transparent-background PNG/SVG at images/logo.png.
-   Until that file exists, onerror on the <img> falls back to the "JF"
-   text mark automatically (see components/navbar.html). */
+/* Logo — ready for a transparent-background PNG/SVG. Sized to match
+   the width/height attributes already set in components/navbar.html
+   and components/footer.html. Until the real logo file loads, onerror
+   on the <img> falls back to the "JF" text mark automatically. */
 .nav-logo {
-  height: 100px;
-  width: auto;
+  height: 40px;
+  width: 40px;
+  object-fit: contain;
   display: block;
 }
 
 .footer-logo-img {
-  height: 100px;
-  width: auto;
+  height: 36px;
+  width: 36px;
+  object-fit: contain;
   display: block;
 }
 
@@ -1090,3 +1104,47 @@ html, body { overflow-x: hidden; max-width: 100%; }
 .mt-lg { margin-top: 3rem; }
 .mb-sm { margin-bottom: 10px; }
 
+/* =========================================================
+   CUSTOM CURSOR — soft trailing dot (see js/script.js for the
+   mouse-tracking logic). Desktop/mouse only: hidden entirely on
+   touch devices as a second line of defense alongside the JS
+   pointer:fine check, in case a device reports fine pointer
+   support but is still primarily touch-driven.
+   ========================================================= */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,160,48,0.55) 0%, rgba(181,72,52,0.35) 70%, transparent 100%);
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: width 0.25s var(--ease-spring), height 0.25s var(--ease-spring), background 0.25s ease, opacity 0.2s ease;
+  will-change: transform;
+}
+.custom-cursor-dot.is-active { opacity: 1; }
+.custom-cursor-dot.is-hovering {
+  width: 34px;
+  height: 34px;
+  background: radial-gradient(circle, rgba(224,160,48,0.7) 0%, rgba(181,72,52,0.45) 70%, transparent 100%);
+}
+@media (pointer: coarse) {
+  .custom-cursor-dot { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .custom-cursor-dot { display: none; }
+}
+
+/* Hides the native cursor only once JS confirms the custom dot is
+   actually running (fine pointer + motion allowed) — see the
+   'custom-cursor-active' class added in js/script.js. !important is
+   needed because many components (buttons, filter chips, gallery
+   items, form tabs) declare their own explicit cursor: pointer,
+   which would otherwise win over a plain inherited cursor: none. */
+html.custom-cursor-active,
+html.custom-cursor-active * {
+  cursor: none !important;
+}
