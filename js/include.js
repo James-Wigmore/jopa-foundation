@@ -16,10 +16,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   await includeHTML('navbar', 'components/navbar.html');
   await includeHTML('footer', 'components/footer.html');
 
-  // Highlight the active nav link once the navbar is in the DOM
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  // Highlight the active nav link once the navbar is in the DOM.
+  // Normalizes both the current URL path and each link's href down to
+  // a bare "page slug" (strips .html, leading/trailing slashes, and
+  // treats the site root as 'index') so this keeps working whether a
+  // page is served as clean-url.com/about or the raw about.html file.
+  function normalize(path) {
+    path = path.split('#')[0].split('?')[0];
+    path = path.replace(/\.html$/i, '');
+    path = path.replace(/^\/+|\/+$/g, '');
+    return path === '' ? 'index' : path;
+  }
+  const current = normalize(window.location.pathname);
   document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === current) link.classList.add('active');
+    if (normalize(link.getAttribute('href')) === current) link.classList.add('active');
   });
 
   // Mobile nav toggle

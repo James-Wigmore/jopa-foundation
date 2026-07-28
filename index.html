@@ -23,8 +23,8 @@
 
 <main>
 
-<!-- HERO -->
-<section class="hero">
+<!-- HERO (photo-overlay comparison variant) -->
+<section class="hero has-photo">
   <div class="hero-grid">
     <div class="hero-copy">
       <span class="hero-eyebrow">Registered Community-Based Organization · Uganda</span>
@@ -33,31 +33,73 @@
         JOPA Foundation Uganda exists to promote sustainable community development through structured programs in education, leadership training, innovation, and social transformation — in accordance with its constitutional objectives.
       </p>
       <div class="hero-buttons">
-        <a href="programs.html" class="btn btn-gold">Our Programs</a>
-        <a href="contact.html" class="btn btn-outline-light">Get Involved</a>
+        <a href="programs" class="btn btn-gold">Our Programs</a>
+        <a href="contact" class="btn btn-outline-light">Get Involved</a>
       </div>
     </div>
-    <div class="hero-map" style="position:relative;">
-      <svg class="blob-shape" viewBox="0 0 400 400" style="top:-40px; left:-30px; width:340px; height:340px;">
-        <path fill="#E0A030" opacity="0.16" d="M320,80 Q370,150 340,230 Q310,310 220,340 Q130,370 80,300 Q30,230 60,150 Q90,70 180,50 Q270,30 320,80Z"/>
-      </svg>
-      <svg viewBox="0 0 300 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Stylized map of Uganda showing districts reached by JOPA Foundation Uganda" style="position:relative; z-index:1;">
-        <path d="M90 20 L200 15 L240 60 L230 110 L260 150 L240 200 L250 250 L200 300 L140 320 L90 290 L60 240 L70 180 L40 130 L60 80 Z"
-              fill="none" stroke="#F1C878" stroke-width="1.5" opacity="0.5"/>
-        <circle class="district-dot pulse" cx="150" cy="90" r="5"/>
-        <circle class="district-dot pulse" cx="110" cy="150" r="5"/>
-        <circle class="district-dot pulse" cx="190" cy="170" r="5"/>
-        <circle class="district-dot pulse" cx="140" cy="230" r="5"/>
-        <circle class="district-dot pulse" cx="170" cy="270" r="5"/>
-      </svg>
-      <span class="hero-map-caption">1 district and counting</span>
-      <div class="floating-badge" style="bottom:40px; left:-10px;">
-        <div class="badge-icon">🤝</div>
-        <div>
-          <div class="badge-number">5+</div>
-          <div class="badge-label">Registered Volunteers</div>
+  </div>
+</section>
+
+<!-- IMPACT STAT BAR (moved up to sit right under the hero, overlapping its
+     bottom edge — same .impact-section/.impact-grid/.impact-number markup
+     and count-up hook as before, just repositioned and slimmed down) -->
+<section class="section impact-section stat-bar">
+  <div class="container">
+    <div class="stat-bar-inner">
+      <div class="impact-grid">
+        <div class="impact-card">
+          <div class="impact-number" data-count="1" data-suffix="">0</div>
+          <p class="impact-label">Administrative District Reached</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number" data-count="6">0</div>
+          <p class="impact-label">Development Projects Implemented</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number" data-count="20">0</div>
+          <p class="impact-label">Youth Beneficiaries Supported</p>
+        </div>
+        <div class="impact-card">
+          <div class="impact-number" data-count="5">0</div>
+          <p class="impact-label">Registered Volunteers</p>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR FOCUS AREAS -->
+<section class="section focus-areas-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow scroll-reveal">Where we work</span>
+      <h2 class="section-title scroll-reveal">Our Focus Areas</h2>
+      <p class="section-subtitle scroll-reveal">Every JOPA Foundation Uganda program falls under one of four focus areas from our Annual Work Plan.</p>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card scroll-reveal">
+        <div class="focus-icon">🎓</div>
+        <h3>Education</h3>
+        <p>Education &amp; Mentorship, ICT &amp; Digital Skills</p>
+      </div>
+      <div class="focus-card scroll-reveal">
+        <div class="focus-icon">🌱</div>
+        <h3>Health &amp; Environment</h3>
+        <p>Health, Welfare &amp; Environmental Sustainability</p>
+      </div>
+      <div class="focus-card scroll-reveal">
+        <div class="focus-icon">👩‍💼</div>
+        <h3>Empowerment &amp; Enterprise</h3>
+        <p>Youth &amp; Women Empowerment, Beekeeping &amp; Poultry</p>
+      </div>
+      <div class="focus-card scroll-reveal">
+        <div class="focus-icon">🌾</div>
+        <h3>Agriculture &amp; Governance</h3>
+        <p>Food Security, Governance &amp; Administration</p>
+      </div>
+    </div>
+    <div class="text-center mt-lg">
+      <a href="programs" class="btn btn-outline">View All Programs</a>
     </div>
   </div>
 </section>
@@ -94,34 +136,6 @@
   </div>
 </section>
 
-<!-- IMPACT -->
-<section class="section impact-section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow">Our impact</span>
-      <h2 class="section-title">Progress we can point to.</h2>
-    </div>
-    <div class="impact-grid">
-      <div class="impact-card">
-        <div class="impact-number" data-count="1" data-suffix="">0</div>
-        <p class="impact-label">Administrative District Reached</p>
-      </div>
-      <div class="impact-card">
-        <div class="impact-number" data-count="6">0</div>
-        <p class="impact-label">Development Projects Implemented</p>
-      </div>
-      <div class="impact-card">
-        <div class="impact-number" data-count="20">0</div>
-        <p class="impact-label">Youth Beneficiaries Supported</p>
-      </div>
-      <div class="impact-card">
-        <div class="impact-number" data-count="5">0</div>
-        <p class="impact-label">Registered Volunteers</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- CAUSES (programs to support) -->
 <div class="pattern-divider"></div>
 <section class="section causes-section">
@@ -140,8 +154,8 @@
         <h3>Education & Mentorship</h3>
         <p>Providing quality education and skills training to build a knowledgeable and capable workforce.</p>
         <div class="cause-cta">
-          <a href="programs.html" class="btn-text" aria-label="Learn more about the Education &amp; Mentorship program">Learn more →</a>
-          <a href="contact.html#donate" class="btn btn-primary">Support This Program</a>
+          <a href="programs" class="btn-text" aria-label="Learn more about the Education &amp; Mentorship program">Learn more →</a>
+          <a href="contact#donate" class="btn btn-primary">Support This Program</a>
         </div>
       </div>
       <div class="cause-card scroll-reveal">
@@ -152,8 +166,8 @@
         <h3>Youth & Women Empowerment</h3>
         <p>Equipping young people and women with skills, resources, and opportunities for success.</p>
         <div class="cause-cta">
-          <a href="programs.html" class="btn-text" aria-label="Learn more about the Youth &amp; Women Empowerment program">Learn more →</a>
-          <a href="contact.html#donate" class="btn btn-primary">Support This Program</a>
+          <a href="programs" class="btn-text" aria-label="Learn more about the Youth &amp; Women Empowerment program">Learn more →</a>
+          <a href="contact#donate" class="btn btn-primary">Support This Program</a>
         </div>
       </div>
       <div class="cause-card scroll-reveal">
@@ -164,8 +178,8 @@
         <h3>Agriculture & Food Security</h3>
         <p>Promoting sustainable farming practices and ensuring food security for rural communities.</p>
         <div class="cause-cta">
-          <a href="programs.html" class="btn-text" aria-label="Learn more about the Agriculture &amp; Food Security program">Learn more →</a>
-          <a href="contact.html#donate" class="btn btn-primary">Support This Program</a>
+          <a href="programs" class="btn-text" aria-label="Learn more about the Agriculture &amp; Food Security program">Learn more →</a>
+          <a href="contact#donate" class="btn btn-primary">Support This Program</a>
         </div>
       </div>
       <div class="cause-card scroll-reveal">
@@ -176,8 +190,8 @@
         <h3>Health, Welfare & Environment</h3>
         <p>Enhancing access to quality healthcare, improving community wellbeing, and promoting environmental sustainability.</p>
         <div class="cause-cta">
-          <a href="programs.html" class="btn-text" aria-label="Learn more about the Health, Welfare &amp; Environment program">Learn more →</a>
-          <a href="contact.html#donate" class="btn btn-primary">Support This Program</a>
+          <a href="programs" class="btn-text" aria-label="Learn more about the Health, Welfare &amp; Environment program">Learn more →</a>
+          <a href="contact#donate" class="btn btn-primary">Support This Program</a>
         </div>
       </div>
       <div class="cause-card scroll-reveal">
@@ -188,13 +202,13 @@
         <h3>ICT & Digital Skills</h3>
         <p>Building digital competencies to enable participation in the knowledge economy.</p>
         <div class="cause-cta">
-          <a href="programs.html" class="btn-text" aria-label="Learn more about the ICT &amp; Digital Skills program">Learn more →</a>
-          <a href="contact.html#donate" class="btn btn-primary">Support This Program</a>
+          <a href="programs" class="btn-text" aria-label="Learn more about the ICT &amp; Digital Skills program">Learn more →</a>
+          <a href="contact#donate" class="btn btn-primary">Support This Program</a>
         </div>
       </div>
     </div>
     <div class="text-center mt-lg">
-      <a href="programs.html" class="btn btn-outline">See All 8 Programs</a>
+      <a href="programs" class="btn btn-outline">See All 8 Programs</a>
     </div>
   </div>
 </section>
@@ -243,7 +257,7 @@
         <div class="project-content">
           <h3>Beekeeping and Honey Production</h3>
           <p>A complete beekeeping start-up building an income-generating honey enterprise for the Foundation's long-term self-reliance.</p>
-          <a href="projects.html" class="btn btn-text" aria-label="Learn more about the Beekeeping and Honey Production project">Learn More →</a>
+          <a href="projects" class="btn btn-text" aria-label="Learn more about the Beekeeping and Honey Production project">Learn More →</a>
         </div>
       </div>
       <div class="project-card scroll-reveal">
@@ -254,7 +268,7 @@
         <div class="project-content">
           <h3>Poultry Farming Project</h3>
           <p>A 100-bird poultry enterprise generating income while demonstrating sustainable farm practices to the community.</p>
-          <a href="projects.html" class="btn btn-text" aria-label="Learn more about the Poultry Farming project">Learn More →</a>
+          <a href="projects" class="btn btn-text" aria-label="Learn more about the Poultry Farming project">Learn More →</a>
         </div>
       </div>
       <div class="project-card scroll-reveal">
@@ -265,12 +279,12 @@
         <div class="project-content">
           <h3>Demonstration Gardens &amp; Produce Sales</h3>
           <p>Two demonstration gardens showing farmers improved growing techniques first-hand, with produce sales feeding back into our programs.</p>
-          <a href="projects.html" class="btn btn-text" aria-label="Learn more about the Demonstration Gardens &amp; Produce Sales project">Learn More →</a>
+          <a href="projects" class="btn btn-text" aria-label="Learn more about the Demonstration Gardens &amp; Produce Sales project">Learn More →</a>
         </div>
       </div>
     </div>
     <div class="text-center mt-lg">
-      <a href="projects.html" class="btn btn-outline">View All Projects</a>
+      <a href="projects" class="btn btn-outline">View All Projects</a>
     </div>
   </div>
 </section>
@@ -340,9 +354,9 @@
       <p>Join us in building hope and empowering communities across Uganda.</p>
     </div>
     <div class="cta-buttons scroll-reveal">
-      <a href="contact.html#volunteer" class="btn btn-primary">Become a Volunteer</a>
-      <a href="contact.html#partner" class="btn btn-secondary">Partner With Us</a>
-      <a href="contact.html#donate" class="btn btn-gold">Donate Now</a>
+      <a href="contact#volunteer" class="btn btn-primary">Become a Volunteer</a>
+      <a href="contact#partner" class="btn btn-secondary">Partner With Us</a>
+      <a href="contact#donate" class="btn btn-gold">Donate Now</a>
     </div>
   </div>
 </section>
@@ -364,7 +378,7 @@
           <div class="news-date">June 20, 2027</div>
           <h3>JOPA Foundation Uganda Launches Digital Skills Program</h3>
           <p>We've launched our comprehensive digital skills program targeting youth in our district, with plans to expand.</p>
-          <a href="news.html" class="btn btn-text" aria-label="Read more about the Digital Skills Program launch">Read More →</a>
+          <a href="news" class="btn btn-text" aria-label="Read more about the Digital Skills Program launch">Read More →</a>
         </div>
       </article>
       <article class="news-card scroll-reveal">
@@ -376,7 +390,7 @@
           <div class="news-date">June 15, 2027</div>
           <h3>Community Health Outreach Success</h3>
           <p>Our recent health campaign reached over 2,000 community members with health screening and awareness sessions.</p>
-          <a href="news.html" class="btn btn-text" aria-label="Read more about the Community Health Outreach">Read More →</a>
+          <a href="news" class="btn btn-text" aria-label="Read more about the Community Health Outreach">Read More →</a>
         </div>
       </article>
       <article class="news-card scroll-reveal">
@@ -388,12 +402,12 @@
           <div class="news-date">June 10, 2027</div>
           <h3>New Partnership Strengthens Our Reach</h3>
           <p>We're thrilled to announce a strategic partnership that will expand our agricultural programs to new communities.</p>
-          <a href="news.html" class="btn btn-text" aria-label="Read more about our new agricultural partnership">Read More →</a>
+          <a href="news" class="btn btn-text" aria-label="Read more about our new agricultural partnership">Read More →</a>
         </div>
       </article>
     </div>
     <div class="text-center mt-lg">
-      <a href="news.html" class="btn btn-outline">View All News</a>
+      <a href="news" class="btn btn-outline">View All News</a>
     </div>
   </div>
 </section>
