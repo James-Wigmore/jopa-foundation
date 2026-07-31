@@ -97,7 +97,7 @@
 .jopa-description { color: rgba(251,248,241,0.82); font-size: 0.98rem; }
 
 /* ---- Generic two-column content ---- */
-.two-column-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
+.two-column-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 .two-column-content p { color: var(--ink-soft); margin-bottom: 16px; }
 @media (max-width: 860px) { .two-column-content { grid-template-columns: 1fr; } }
 
