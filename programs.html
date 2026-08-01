@@ -1,5 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--
+  ORGANIZATION SCHEMA (JSON-LD)
+  =============================
+  Paste this block into the <head> of every page, right before </head>
+  (same place your other meta tags already live). Identical content on
+  every page is intentional and expected — it reinforces the same
+  entity signal site-wide rather than fragmenting it.
+
+  This does NOT change anything visually. Its only job is to give
+  Google an unambiguous, machine-readable answer to "who is this
+  organization" — name, alternate name, exact location, and contact
+  details — which is the strongest lever available for pulling your
+  entity apart from the unrelated Nigerian organization sharing the
+  name "JOPA Foundation."
+
+  Before using: double-check the "logo" URL below once you've
+  resolved the navbar-vs-footer logo path mismatch flagged separately,
+  and confirm the phone/email/social links are still current.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CBO",
+  "name": "JOPA Foundation Uganda",
+  "alternateName": "JOPA Foundation Uganda",
+  "url": "https://www.jopafoundation.org/",
+  "logo": "https://www.jopafoundation.org/assets/images/jopa.png",
+  "description": "JOPA Foundation Uganda is a community-based organization promoting sustainable development in Amuria, Uganda through education, leadership development, innovation, and empowerment initiatives.",
+  "email": "admin@jopafoundation.org",
+  "telephone": "+256773382591",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Amuria",
+    "addressCountry": "UG"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Uganda"
+  }
+}
+</script>
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
