@@ -1,38 +1,10 @@
-// Loads shared navbar and footer partials into any page that has
-// <div id="navbar"></div> and <div id="footer"></div>
-async function includeHTML(elementId, filePath) {
-  const el = document.getElementById(elementId);
-  if (!el) return;
-  try {
-    const res = await fetch(filePath);
-    if (!res.ok) throw new Error(`${filePath} returned ${res.status}`);
-    el.innerHTML = await res.text();
-  } catch (err) {
-    console.error(`Could not load ${filePath}:`, err);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-  await includeHTML('navbar', 'components/navbar.html');
-  await includeHTML('footer', 'components/footer.html');
-
-  // Highlight the active nav link once the navbar is in the DOM.
-  // Normalizes both the current URL path and each link's href down to
-  // a bare "page slug" (strips .html, leading/trailing slashes, and
-  // treats the site root as 'index') so this keeps working whether a
-  // page is served as clean-url.com/about or the raw about.html file.
-  function normalize(path) {
-    path = path.split('#')[0].split('?')[0];
-    path = path.replace(/\.html$/i, '');
-    path = path.replace(/^\/+|\/+$/g, '');
-    return path === '' ? 'index' : path;
-  }
-  const current = normalize(window.location.pathname);
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    if (normalize(link.getAttribute('href')) === current) link.classList.add('active');
-  });
-
-  // Mobile nav toggle
+// Previously this file used fetch() to pull components/navbar.html and
+// components/footer.html into every page at runtime — that's now done
+// once, at build time, by build.js (see that file for details). The
+// navbar and footer already exist in the page's HTML by the time this
+// script runs, so all that's left here is wiring up the mobile menu
+// toggle, which needs real interactivity a build step can't provide.
+document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('navToggle');
   const links = document.getElementById('navLinks');
   if (toggle && links) {
@@ -42,6 +14,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
   }
 
-  // Let the rest of the app know includes are ready
+  // script.js's wireUpForms() listens for this event so it knows the
+  // (now always-present) footer newsletter form exists before wiring
+  // it up. Kept for compatibility rather than restructuring script.js
+  // as well — it also has its own DOMContentLoaded fallback, so this
+  // is a belt-and-braces signal rather than a strict dependency.
   document.dispatchEvent(new Event('includes:loaded'));
 });

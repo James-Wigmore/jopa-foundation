@@ -372,9 +372,7 @@ h1, h2, h3, h4 {
   border-radius: var(--radius);
   overflow: visible; /* visible, not hidden — lets .floating-badge hang over the corner; the
                          photo and decorative overlay are clipped individually below instead */
-  aspect-ratio: 4/2.4; /* shortened from 4/3.2 — the text column here is only two short
-                           paragraphs, so the original ratio made the image tower over it even
-                           with align-items:center; this brings the two much closer in height */
+  aspect-ratio: 4/3.2;
   background: linear-gradient(155deg, var(--forest) 0%, var(--forest-deep) 100%);
   position: relative;
   transition: box-shadow 0.3s ease;
@@ -403,9 +401,7 @@ h1, h2, h3, h4 {
     position: relative;
     overflow: hidden;
     border-radius: 18px;
-    aspect-ratio: 4 / 3; /* shortened from 4/3.4 — About page's "Our Story" text runs three
-                             full paragraphs, so it needed less trimming than the homepage
-                             image above, just enough to close most of the remaining gap */
+    aspect-ratio: 4 / 3.4;
     box-shadow: 0 20px 50px rgba(0,0,0,.15);
 }
 
@@ -458,61 +454,6 @@ h1, h2, h3, h4 {
 .impact-label { color: rgba(251,248,241,0.75); font-size: 0.92rem; margin-top: 6px; }
 
 @media (max-width: 860px) { .impact-grid { grid-template-columns: 1fr 1fr; row-gap: 34px; } }
-
-/* ---- Stat bar variant: sits right under the hero photo, overlapping
-   its bottom edge in a rounded card — same markup/hooks as the impact
-   band above, just repositioned and slimmed down. ---- */
-.impact-section.stat-bar {
-  background: transparent;
-  padding: 0;
-  position: relative;
-  z-index: 2;
-}
-.stat-bar-inner {
-  background: var(--forest);
-  border-radius: var(--radius);
-  padding: 34px 40px;
-  margin-top: -54px;
-  box-shadow: var(--shadow-md);
-}
-.stat-bar .impact-card { border-left-width: 3px; }
-@media (max-width: 860px) {
-  .stat-bar-inner { margin-top: -34px; padding: 26px 20px; }
-}
-@media (max-width: 480px) {
-  .stat-bar-inner { margin-top: -22px; }
-}
-
-/* =========================================================
-   OUR FOCUS AREAS — compact icon grid linking through to Programs
-   ========================================================= */
-.focus-areas-section { background: var(--paper); }
-.focus-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  margin-bottom: 36px;
-}
-.focus-card {
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 28px 22px;
-  text-align: center;
-  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease, border-color 0.2s ease;
-}
-.focus-card:hover { transform: translateY(var(--lift-sm)); box-shadow: var(--shadow-sm); border-color: transparent; }
-.focus-icon {
-  width: 52px; height: 52px; margin: 0 auto 14px;
-  border-radius: 14px;
-  background: rgba(27,67,50,0.08);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.5rem;
-}
-.focus-card h3 { font-size: 1.02rem; margin-bottom: 8px; }
-.focus-card p { color: var(--ink-soft); font-size: 0.88rem; line-height: 1.5; }
-@media (max-width: 860px) { .focus-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) { .focus-grid { grid-template-columns: 1fr; } }
 
 /* =========================================================
    FEATURED PROJECTS
@@ -790,6 +731,27 @@ h1, h2, h3, h4 {
 }
 .floating-badge .badge-number { font-family: var(--font-mono); font-weight: 600; color: var(--forest-deep); font-size: 1.1rem; line-height: 1.1; }
 .floating-badge .badge-label { color: var(--ink-soft); font-size: 0.76rem; }
+
+/* Corner-position modifiers — replaces inline style="bottom:...; left/right:..."
+   that was previously duplicated (and drifting: -18px in two places, -20px in
+   a third, for what should be the same visual treatment) across about.html,
+   index.html, and leadership.html. -20px everywhere now. */
+.floating-badge--bl { bottom: -20px; left: -20px; }
+.floating-badge--br { bottom: -20px; right: -20px; }
+/* One genuinely bespoke placement (badge sits over the hero map, not a
+   photo corner) — kept as its own modifier rather than forced to reuse
+   the corner variants above, since the position values aren't related. */
+.floating-badge--map-marker { bottom: 40px; left: -10px; }
+
+/* Eyebrow color override for dark-background sections (e.g. "How You Can
+   Help") — replaces inline style="color: var(--gold-light);" */
+.section-eyebrow--on-dark { color: var(--gold-light); }
+
+/* Keeps the real map SVG stacked above the decorative blob SVG behind it
+   inside .hero-map — replaces inline style="position:relative; z-index:1;"
+   (.hero-map itself already sets position:relative, so only the stacking
+   order needs stating here). */
+.hero-map > svg:not(.blob-shape) { position: relative; z-index: 1; }
 
 /* Cause cards (programs framed as "causes" you can support) */
 .causes-section { background: var(--paper); }

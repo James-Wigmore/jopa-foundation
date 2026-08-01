@@ -100,6 +100,14 @@
 .two-column-content { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 .two-column-content p { color: var(--ink-soft); margin-bottom: 16px; }
 @media (max-width: 860px) { .two-column-content { grid-template-columns: 1fr; } }
+/* Single-column variant — replaces inline style="grid-template-columns: 1fr;"
+   used on the Leadership intro section */
+.two-column-content--single { grid-template-columns: 1fr; }
+
+/* Contact page: map iframe reset + spacing below it — replaces two inline
+   styles (style="border:0;" and style="margin-top:14px;") */
+.contact-map-iframe { border: 0; }
+.map-note { margin-top: 14px; }
 
 /* NOTE: .image-placeholder and .section-image (the real-photo container
    used inside .two-column-content above) live in style.css — that is
